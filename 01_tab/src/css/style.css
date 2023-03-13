@@ -8,6 +8,11 @@ body {
   padding: 40px;
 }
 
+ul {
+  list-style: none;
+  display: flex;
+}
+
 .content {
   display: none;
   padding: 8px;
@@ -19,22 +24,17 @@ body {
   display: block;
 }
 
-ul {
-  list-style: none;
-  display: flex;
-}
-
 .list {
   margin-right:8px;
   padding: 4px 8px;
   background-color: lightblue;
 }
 
+.list:last-child {
+  margin-right: 0;
+}
+
 .list.is-active {
   background-color: azure;
   border-top: 1px solid aqua;
-}
-
-li:last-child {
-  margin-right: 0;
 }
