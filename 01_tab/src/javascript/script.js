@@ -2,7 +2,7 @@ window.onload = () => {
   const list = document.querySelectorAll(".list");
 
   list.forEach(value => {
-    value.addEventListener("click", () => {d
+    value.addEventListener("click", () => {
       document.querySelectorAll(".content").forEach(i => {
         i.classList.remove("is-active");
       });
