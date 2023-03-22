@@ -34,3 +34,7 @@ window.onload = () => {
     closeModal(close);
   });
 }
+
+// ①constとfunctionの宣言の違いがいまいちわからない……
+// ②でかいdivがある時にoverlayがスクロールしないようにしたいのに、うまくいかない……
+// ③CSSアニメーションもわからんかった＞＜
