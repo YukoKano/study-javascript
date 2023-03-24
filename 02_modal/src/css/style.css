@@ -19,8 +19,8 @@ body {
   height: auto;
 }
 
-.overlay {
-  display: none;
+.overlay.is-active {
+  display: block;
   position: fixed; /* これ大事 */
   top: 0;
   left: 0;
@@ -29,10 +29,6 @@ body {
   background-color: gray;
   opacity: 0.5;
   z-index: 1;
-}
-
-.overlay.is-active {
-  display: block;
 }
 
 .modal {
@@ -75,7 +71,7 @@ body {
   margin-top: 8px;
 }
 
-.close {
+.closeButton {
   display: inline-block;
   margin-top: 16px;
   padding: 4px 8px;
