@@ -1,105 +1,107 @@
 const activeClassName = "is-active";
 
 window.onload = () => {
+  const overlay = document.querySelector(".overlay");
+
+  const modal = document.querySelector(".modal");
+  const modalImage = document.querySelector(".modalImage");
+  const modalTitle = document.querySelector(".modalTitle");
+  const modalDate = document.querySelector(".modalDate");
+  const modalText = document.querySelector(".modalText");
+
+  const closeItems = document.querySelectorAll(".closeItem");
+
+  const imageBox = document.querySelector('.imageBox');
   const imageArray = [
     {
       src: "./src/images/20180400-2.JPG",
       width: 200,
       height: 100,
-      title: "空"
+      title: "空",
+      date: "2018-04-00",
+      text: "hoge"
     },
     {
       src: "./src/images/20180400-6.JPG",
       width: 200,
       height: 100,
-      title: "桜と空"
+      title: "桜と空",
+      date: "2018-04-00",
+      text: "fuge"
     },
     {
       src: "./src/images/20180400-13.JPG",
       width: 200,
       height: 100,
-      title: "桜"
+      title: "桜",
+      date: "2018-04-00",
+      text: "hello"
     },
     {
       src: "./src/images/20180400-15.JPG",
       width: 200,
       height: 100,
-      title: "満開の桜"
+      title: "満開の桜",
+      date: "2018-04-00",
+      text: "bloom"
     }
   ]
 
+
   const addImages = () => {
+    // 配列にある画像を小要素に追加する
     imageArray.forEach((image, i) => {
       let content = document.createElement('img');
       content.src = image.src;
       content.width = image.width;
       content.height = image.height;
       content.alt = image.title;
-      content.dataset.image = `modal${i + 1}`;
-      document.querySelector('.images').appendChild(content);
+      imageBox.appendChild(content);
     });
   }
 
-  addImages();
-
-  const closeButton = document.querySelector(".closeButton");
-  const overlay = document.querySelector(".overlay");
-  const modals = document.querySelectorAll(".modal");
-  const closeItems = document.querySelectorAll(".closeItem");
-
   const createModal = (item) => {
-    let modal = document.querySelector(".modal");
-    modal.dataset.modal = `${item.dataset.image}`;
+    // arrayからsrcが一致するデータを探す
+    const obj = imageArray.find(e => e.src === item.src.replace("http://127.0.0.1:3000/02_modal", "."));
 
-    let modalImage = document.createElement('img');
-    modalImage.src = item.src;
-    modalImage.width = 400;
-    modalImage.height = 300;
-    modalImage.alt = item.alt;
-    modal.insertBefore(modalImage, closeButton);
-
-    let modalTitle = document.createElement('p');
-    modalTitle.classList.add("modalTitle");
-    modalTitle.appendChild(document.createTextNode(item.alt));
-    modal.insertBefore(modalTitle, closeButton);
-
-    let modalDate = document.createElement('p');
-    modalDate.classList.add("modalDate");
-    modalDate.appendChild(document.createTextNode("2018-04-00"));
-    modal.insertBefore(modalDate, closeButton);
-
-    let modalText = document.createElement('p');
-    modalText.classList.add("modalText");
-    modalText.appendChild(document.createTextNode("hogehoge"));
-    modal.insertBefore(modalText, closeButton);
+    // modalにデータを入れる
+    modalImage.src = obj.src;
+    modalImage.alt = obj.text;
+    modalImage.width = obj.width;
+    modalImage.height = obj.height;
+    modalTitle.appendChild(document.createTextNode(obj.title));
+    modalDate.appendChild(document.createTextNode(obj.date));
+    modalText.appendChild(document.createTextNode(obj.text));
   }
 
   const deleteModal = () => {
-    let img = document.querySelector('.modal img');
-    img.remove();
-    let p = document.querySelectorAll('.modal p');
-    console.log(p);
-    p.forEach((i) => i.remove());
+    // modal内のテキストを削除する（imgは上書きされるから不要）
+    modalTitle.removeChild(modalTitle.firstChild);
+    modalDate.removeChild(modalDate.firstChild);
+    modalText.removeChild(modalText.firstChild);
   }
 
 
   const changeModal = (item, status)  => {
     item.addEventListener("click", () => {
       if (status === "open") {
-        createModal(item);
         overlay.classList.add(activeClassName);
-        document.querySelector(`[data-modal="${item.dataset.image}"]`).classList.add(activeClassName);
+        modal.classList.add(activeClassName);
+        createModal(item);
       } else if (status === "close") {
         overlay.classList.remove(activeClassName);
-        modals.forEach(modal => modal.classList.remove(activeClassName));
-        deleteModal(item);
+        modal.classList.remove(activeClassName);
+        deleteModal();
       }
     })
   }
 
-  const images = document.querySelectorAll('.images img');
 
-  // imageを押すとモーダルが開く
+  // 画像を描画する
+  addImages();
+
+  // 画像を押すとモーダルが開く
+  const images = document.querySelectorAll('.imageBox img'); // addImages()してからやらないと空っぽのためここに記載
   images.forEach(image => {
     changeModal(image, "open");
   });

@@ -8,13 +8,13 @@ body {
   margin: 20px;
 }
 
-.images {
+.imageBox {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.images img {
+.imageBox img {
   width: 200px;
   height: auto;
 }
@@ -46,13 +46,13 @@ body {
   overscroll-behavior: contain; /* 山田さんおすすめCSS */
 }
 
-.modal img {
-  width: 100%;
-  height: auto;
-}
-
 .modal.is-active {
   display: block;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
 }
 
 .modalTitle {
