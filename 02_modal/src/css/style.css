@@ -5,7 +5,9 @@
 }
 
 body {
-  margin: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
 }
 
 .imageBox {
@@ -19,6 +21,19 @@ body {
   height: auto;
 }
 
+.modalWrap {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalWrap.is-active {
+  display: block;
+}
+
 .overlay.is-active {
   display: block;
   position: fixed; /* これ大事 */
@@ -28,26 +43,19 @@ body {
   height: 100%;
   background-color: gray;
   opacity: 0.5;
-  z-index: 1;
 }
 
 .modal {
-  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   padding: 40px 40px;
-  z-index: 2;
   background-color: white;
-  max-width: 80vw;
+  width: 80%;
   max-height: 80vh;
   overflow-y: auto;
   overscroll-behavior: contain; /* 山田さんおすすめCSS */
-}
-
-.modal.is-active {
-  display: block;
 }
 
 .modalImage {
@@ -69,6 +77,8 @@ body {
 
 .modalText {
   margin-top: 8px;
+  word-break: break-all;
+  line-height: 1.6;
 }
 
 .closeButton {

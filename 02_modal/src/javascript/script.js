@@ -1,9 +1,11 @@
 const activeClassName = "is-active";
 
 window.onload = () => {
+  const body = document.body;
+
   const overlay = document.querySelector(".overlay");
 
-  const modal = document.querySelector(".modal");
+  const modalWrap = document.querySelector(".modalWrap");
   const modalImage = document.querySelector(".modalImage");
   const modalTitle = document.querySelector(".modalTitle");
   const modalDate = document.querySelector(".modalDate");
@@ -27,7 +29,7 @@ window.onload = () => {
       height: 100,
       title: "桜と空",
       date: "2018-04-00",
-      text: "fuge"
+      text: "雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。"
     },
     {
       src: "./src/images/20180400-13.JPG",
@@ -47,9 +49,8 @@ window.onload = () => {
     }
   ]
 
-
   const addImages = () => {
-    // 配列にある画像を小要素に追加する
+    // 配列にある画像を子要素に追加する
     imageArray.forEach((image, i) => {
       let content = document.createElement('img');
       content.src = image.src;
@@ -66,12 +67,21 @@ window.onload = () => {
 
     // modalにデータを入れる
     modalImage.src = obj.src;
-    modalImage.alt = obj.text;
+    modalImage.alt = obj.title;
     modalImage.width = obj.width;
     modalImage.height = obj.height;
     modalTitle.appendChild(document.createTextNode(obj.title));
     modalDate.appendChild(document.createTextNode(obj.date));
     modalText.appendChild(document.createTextNode(obj.text));
+
+    // overlay部分を動かさないようにする
+    let scrollY = window.scrollY;
+    body.style.top = `-${scrollY}px`;
+    body.style.position = "fixed";
+
+    // overlayとmodalを表示する
+    modalWrap.classList.add(activeClassName);
+    overlay.classList.add(activeClassName);
   }
 
   const deleteModal = () => {
@@ -79,23 +89,27 @@ window.onload = () => {
     modalTitle.removeChild(modalTitle.firstChild);
     modalDate.removeChild(modalDate.firstChild);
     modalText.removeChild(modalText.firstChild);
-  }
 
+    // overlay部分を動かせるようにする
+    let beforePositionY = body.style.top.replace("px", "");
+    body.style.top = '';
+    body.style.position = '';
+    window.scrollTo(0, beforePositionY * -1);
+
+    // overlayとmodalを非表示にする
+    modalWrap.classList.remove(activeClassName);
+    overlay.classList.remove(activeClassName);
+  }
 
   const changeModal = (item, status)  => {
     item.addEventListener("click", () => {
       if (status === "open") {
-        overlay.classList.add(activeClassName);
-        modal.classList.add(activeClassName);
         createModal(item);
       } else if (status === "close") {
-        overlay.classList.remove(activeClassName);
-        modal.classList.remove(activeClassName);
         deleteModal();
       }
     })
   }
-
 
   // 画像を描画する
   addImages();
@@ -107,7 +121,7 @@ window.onload = () => {
   });
 
   // overlayと閉じるボタンを押すとモーダルが閉じる
-  closeItems.forEach(close => {
-    changeModal(close, "close");
+  closeItems.forEach(item => {
+    changeModal(item, "close");
   });
 }
