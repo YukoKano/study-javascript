@@ -121,7 +121,7 @@ window.onload = () => {
 
   const addImages = () => {
     // 配列にある画像を子要素に追加する
-    imageArray.forEach((image, i) => {
+    imageArray.forEach((image) => {
       let content = document.createElement('img');
       content.src = image.src;
       content.width = image.width;
@@ -133,7 +133,9 @@ window.onload = () => {
 
   const createModal = (item) => {
     // arrayからsrcが一致するデータを探す
-    const obj = imageArray.find(e => e.src === item.src.replace("http://127.0.0.1:3000/02_modal", "."));
+    // urlの末尾の/をなくす
+    const url = location.href.replace(/(.+)\/$/, (_, p1) => p1);
+    const obj = imageArray.find(e => e.src === item.src.replace(url, "."));
 
     // modalにデータを入れる
     modalImage.src = obj.src;
