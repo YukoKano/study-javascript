@@ -102,7 +102,15 @@ window.onload = () => {
       text: "test"
     },
     {
-      src: "./src/images/12.JPG",
+      src: "./src/images/12.jpg",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/13.jpg",
       width: 200,
       height: 200,
       title: "test",
