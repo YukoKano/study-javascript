@@ -3,8 +3,6 @@ const activeClassName = "is-active";
 window.onload = () => {
   const body = document.body;
 
-  const overlay = document.querySelector(".overlay");
-
   const modalWrap = document.querySelector(".modalWrap");
   const modalImage = document.querySelector(".modalImage");
   const modalTitle = document.querySelector(".modalTitle");
@@ -16,37 +14,101 @@ window.onload = () => {
   const imageBox = document.querySelector('.imageBox');
   const imageArray = [
     {
-      src: "./src/images/20180400-2.JPG",
+      src: "./src/images/01.JPG",
       width: 200,
-      height: 100,
+      height: 200,
       title: "空",
       date: "2018-04-00",
       text: "hoge"
     },
     {
-      src: "./src/images/20180400-6.JPG",
+      src: "./src/images/02.JPG",
       width: 200,
-      height: 100,
+      height: 200,
       title: "桜と空",
       date: "2018-04-00",
       text: "雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。雲ひとつない青空、4月、桜が咲き乱れている。「桜の樹の下には死体が埋まっている」と大学のサークルで誰かが自慢げに話していたが、くだらない。「桜が埋められたのは土壌をよりかたく頑丈にするためだ」という話の方が僕は好きだ。だから川沿いに桜が埋められている。そう、どう考えても、死体なんか埋まっていない。"
     },
     {
-      src: "./src/images/20180400-13.JPG",
+      src: "./src/images/03.JPG",
       width: 200,
-      height: 100,
+      height: 200,
       title: "桜",
       date: "2018-04-00",
       text: "hello"
     },
     {
-      src: "./src/images/20180400-15.JPG",
+      src: "./src/images/04.JPG",
       width: 200,
-      height: 100,
+      height: 200,
       title: "満開の桜",
       date: "2018-04-00",
       text: "bloom"
-    }
+    },
+    {
+      src: "./src/images/05.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/06.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/07.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/08.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/09.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/10.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/11.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
+    {
+      src: "./src/images/12.JPG",
+      width: 200,
+      height: 200,
+      title: "test",
+      date: "2018-05-20",
+      text: "test"
+    },
   ]
 
   const addImages = () => {
@@ -79,9 +141,8 @@ window.onload = () => {
     body.style.top = `-${scrollY}px`;
     body.style.position = "fixed";
 
-    // overlayとmodalを表示する
+    // modalを表示する
     modalWrap.classList.add(activeClassName);
-    overlay.classList.add(activeClassName);
   }
 
   const deleteModal = () => {
@@ -96,9 +157,8 @@ window.onload = () => {
     body.style.position = '';
     window.scrollTo(0, beforePositionY * -1);
 
-    // overlayとmodalを非表示にする
+    // modalを非表示にする
     modalWrap.classList.remove(activeClassName);
-    overlay.classList.remove(activeClassName);
   }
 
   const changeModal = (item, status)  => {
