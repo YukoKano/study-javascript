@@ -108,7 +108,7 @@ window.onload = () => {
       title: "test",
       date: "2018-05-20",
       text: "test"
-    },
+    }
   ]
 
   const addImages = () => {
@@ -168,7 +168,7 @@ window.onload = () => {
       } else if (status === "close") {
         deleteModal();
       }
-    })
+    });
   }
 
   // 画像を描画する
