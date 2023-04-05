@@ -3,3 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  margin: 40px;
+}
+
+.todoLists {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.todoLists li input {
+  margin-right: 8px;
+}
