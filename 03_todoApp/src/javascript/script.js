@@ -4,26 +4,32 @@ window.onload = () => {
 
   let index = 0;
 
+  const createList = (item) => {
+    const list = document.createElement('li');
+    if (item.checked) {
+      list.className = "finished";
+      list.style.display = "none";
+    }
+
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('data-list', index);
+    checkbox.setAttribute('type', 'checkbox');
+    list.appendChild(checkbox);
+
+    list.appendChild(document.createTextNode(item.content));
+    todoLists.appendChild(list);
+  }
+
   console.log(`現在、localstrageは${localStorage.length}個のアイテムがあります`);
-
-
 
   // localStorageにデータがあったら読み込む
   if (localStorage.length != 0) {
     for (var i = 0; i < localStorage.length; i++) {
-      console.log(localStorage.getItem(`todo${i}`));
-      const todoSavedItem = localStorage.getItem(`todo${i}`);
+      // jsonで保存されているデータを解凍する
+      const todoSavedItem = JSON.parse(localStorage.getItem(`todo${i}`));
+      console.log(todoSavedItem);
 
-      const list = document.createElement('li');
-
-      const checkbox = document.createElement('input');
-      checkbox.setAttribute('data-index', i);
-      checkbox.setAttribute('type', 'checkbox');
-      checkbox.setAttribute('name', 'finished');
-      list.appendChild(checkbox);
-      list.appendChild(document.createTextNode(todoSavedItem));
-
-      todoLists.appendChild(list);
+      createList(todoSavedItem);
 
       index++;
     }
@@ -31,34 +37,34 @@ window.onload = () => {
 
   // textboxの入力を追加
   todoContent.addEventListener('change', () => {
-    const list = document.createElement('li');
+    // 入力したデータをjsonに変換する
+    const listData = {
+      content: todoContent.value,
+      checked: false
+    };
+    const jsonString = JSON.stringify(listData);
 
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('data-index', index);
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('name', 'finished');
-    list.appendChild(checkbox);
-
-    list.appendChild(document.createTextNode(todoContent.value));
-    localStorage.setItem(`todo${index}`, todoContent.value);
-
-    todoLists.appendChild(list);
+    // listを作成する
+    createList(listData);
+    localStorage.setItem(`todo${index}`, jsonString);
 
     index++;
     todoContent.value = "";
   })
 
-  const removeListItem = (i) => {
-    console.log(`${i.dataset.index} checked`);
-    i.parentNode.remove();
-    // localStorage.removeItem(`todo${i.dataset.index}`);
-  }
-
   // checkbox checkしたら削除
   document.querySelectorAll('.todoLists li input').forEach((item) => {
     item.addEventListener(('change'), () => {
+      const newListData = {
+        content: JSON.parse(localStorage.getItem(`todo${item.dataset.list}`)).content,
+        checked: true
+      };
+
+      localStorage.setItem(`todo${item.dataset.list}`,
+        JSON.stringify(newListData));
+
       item.parentNode.classList.add('finished');
-      setTimeout(removeListItem, 1000, item);
+      setTimeout((i) => { i.parentNode.style.display = "none" }, 1000, item);
     })
   })
 
@@ -69,4 +75,24 @@ window.onload = () => {
     document.querySelectorAll('.todoLists li').forEach((item) => { item.remove(); })
     index = 0;
   });
+
+  // 完了したlistの表示非表示
+  const toggleDisplay = (state) => {
+      document.querySelectorAll('.finished').forEach((item) => {
+        if (state === 'none') {
+          item.style.display = "none";
+        } else if (state === 'block') {
+          item.style.display = "block";
+        }
+      })
+  };
+
+  const showFinishedButton = document.querySelector('#show');
+  showFinishedButton.addEventListener('click', () => {
+    if (showFinishedButton.checked) {
+      toggleDisplay('block');
+    } else {
+      toggleDisplay('none');
+    }
+  })
 }
