@@ -16,3 +16,11 @@ body {
 .todoLists li input {
   margin-right: 8px;
 }
+
+.resetButton {
+  margin-top: 40px;
+}
+
+.finished {
+  opacity: 0.5;
+}
