@@ -8,17 +8,16 @@ body {
   margin: 40px;
 }
 
-.todoLists {
+.todoListBox {
   margin-top: 20px;
   list-style: none;
 }
 
-.todoLists li input {
+.checkbox {
   margin-right: 8px;
 }
 
-.todoLists li p {
-  display: inline;
+.todoList span {
   margin-left: 8px;
   color: rgb(rgb(56, 56, 56));
   font-size: 0.8rem;
@@ -30,4 +29,12 @@ body {
 
 .finished {
   opacity: 0.5;
+}
+
+.finished.hide {
+  display: none;
+}
+
+.overdue {
+  color: red;
 }
