@@ -67,6 +67,7 @@ window.onload = () => {
     item.addEventListener(('change'), () => {
       const newListData = {
         content: JSON.parse(localStorage.getItem(`todo${item.dataset.list}`)).content,
+        dueDate: JSON.parse(localStorage.getItem(`todo${item.dataset.list}`)).dueDate,
         checked: true
       };
 
