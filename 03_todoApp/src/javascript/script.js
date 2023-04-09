@@ -1,6 +1,7 @@
 window.onload = () => {
   const todoContent = document.getElementById("todoContent");
   const todoLists = document.querySelector(".todoLists");
+  const todoDue = document.querySelector(".dueDate");
 
   let index = 0;
 
@@ -17,6 +18,11 @@ window.onload = () => {
     list.appendChild(checkbox);
 
     list.appendChild(document.createTextNode(item.content));
+
+    const due = document.createElement('p');
+    due.appendChild(document.createTextNode(item.dueDate));
+    list.appendChild(due);
+
     todoLists.appendChild(list);
   }
 
@@ -36,20 +42,24 @@ window.onload = () => {
   }
 
   // textboxの入力を追加
-  todoContent.addEventListener('change', () => {
+  document.querySelector(".addButton").addEventListener('click', () => {
     // 入力したデータをjsonに変換する
-    const listData = {
-      content: todoContent.value,
-      checked: false
-    };
-    const jsonString = JSON.stringify(listData);
+    if (todoContent.value != "") {
+      const listData = {
+        content: todoContent.value,
+        dueDate: todoDue.value,
+        checked: false
+      };
+      const jsonString = JSON.stringify(listData);
 
-    // listを作成する
-    createList(listData);
-    localStorage.setItem(`todo${index}`, jsonString);
+      // listを作成する
+      createList(listData);
+      localStorage.setItem(`todo${index}`, jsonString);
 
-    index++;
-    todoContent.value = "";
+      index++;
+      todoContent.value = "";
+      todoDue.value = "";
+    }
   })
 
   // checkbox checkしたら削除
@@ -71,9 +81,12 @@ window.onload = () => {
   // localstrage 削除
   const resetButton = document.querySelector('#reset');
   resetButton.addEventListener('click', () => {
-    localStorage.clear();
-    document.querySelectorAll('.todoLists li').forEach((item) => { item.remove(); })
-    index = 0;
+    const result = confirm('本当に削除しますか？');
+    if (result) {
+      localStorage.clear();
+      document.querySelectorAll('.todoLists li').forEach((item) => { item.remove(); })
+      index = 0;
+    }
   });
 
   // 完了したlistの表示非表示

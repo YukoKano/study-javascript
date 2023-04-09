@@ -17,6 +17,13 @@ body {
   margin-right: 8px;
 }
 
+.todoLists li p {
+  display: inline;
+  margin-left: 8px;
+  color: rgb(rgb(56, 56, 56));
+  font-size: 0.8rem;
+}
+
 .resetButton {
   margin-top: 40px;
 }
