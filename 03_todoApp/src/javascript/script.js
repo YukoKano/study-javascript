@@ -1,12 +1,12 @@
 window.onload = () => {
   const todo = {
-    text: document.querySelector(".todoText"),
-    due: document.querySelector(".todoDue")
+    text: document.querySelector('.todoText'),
+    due: document.querySelector('.todoDue')
   }
 
-  const todoListBox = document.querySelector(".todoListBox");
+  const todoListBox = document.querySelector('.todoListBox');
 
-  const addButton = document.querySelector(".addButton");
+  const addButton = document.querySelector('.addButton');
   const resetButton = document.querySelector('.resetButton');
   const showFinishedButton = document.querySelector('.showFinishedItemButton');
 
@@ -28,9 +28,9 @@ window.onload = () => {
   const toggleDisplay = (state) => {
     document.querySelectorAll('.finished').forEach((item) => {
       if (state === 'hide') {
-        item.classList.add("hide");
+        item.classList.add('hide');
       } else if (state === 'show') {
-        item.classList.remove("hide");
+        item.classList.remove('hide');
       }
     })
   };
@@ -45,27 +45,35 @@ window.onload = () => {
 
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
-    checkbox.classList.add("checkbox");
+    checkbox.classList.add('checkbox');
 
     // check済みなら表示しない
     if (item.checked) {
-      list.classList.add("finished", "hide");
+      list.classList.add('finished', 'hide');
       checkbox.checked = true;
     }
 
     list.appendChild(checkbox);
     list.appendChild(document.createTextNode(item.content));
 
-    if (item.dueDate != "") {
+    if (item.dueDate != '') {
       const due = document.createElement('span');
       due.appendChild(document.createTextNode(item.dueDate));
 
       // 期限過ぎてるか判定
       if (checkOverdue(item.dueDate)) {
-        due.classList.add("overdue");
+        due.classList.add('overdue');
       }
       list.appendChild(due);
     }
+
+    // 削除ボタンの作成
+    const button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    button.classList.add('deleteButton');
+    button.appendChild(document.createTextNode('削除'));
+
+    list.appendChild(button);
 
     todoListBox.appendChild(list);
   }
@@ -75,8 +83,10 @@ window.onload = () => {
   if (localStorage.length != 0) {
     for (var i = 0; i < localStorage.length; i++) {
       // jsonで保存されているデータを解凍してlistを作成
-      const todoSavedItem = JSON.parse(localStorage.getItem(`todo${i}`));
-      createTodo(todoSavedItem);
+      if (localStorage.hasOwnProperty(`todo${i}`)) {
+        const todoSavedItem = JSON.parse(localStorage.getItem(`todo${i}`));
+        createTodo(todoSavedItem);
+      }
       index++;
     }
   }
@@ -84,7 +94,7 @@ window.onload = () => {
   // textboxの入力を追加
   addButton.addEventListener('click', () => {
     // 中身が空っぽじゃない時、入力したデータをjsonに変換する
-    if (todo.text.value != "") {
+    if (todo.text.value != '') {
       const listData = {
         content: todo.text.value,
         dueDate: todo.due.value,
@@ -97,8 +107,8 @@ window.onload = () => {
       localStorage.setItem(`todo${index}`, jsonString);
 
       index++;
-      todo.text.value = "";
-      todo.due.value = "";
+      todo.text.value = '';
+      todo.due.value = '';
     }
   })
 
@@ -121,10 +131,18 @@ window.onload = () => {
       // checkされたら消える、外したら戻す
       if (item.checked) {
         list.classList.add('finished');
-        setTimeout((i) => { i.parentNode.classList.add("hide"); }, 1000, item);
+        setTimeout((i) => { i.parentNode.classList.add('hide'); }, 1000, item);
       } else {
         list.classList.remove('finished');
       }
+    })
+  })
+
+  // deleteButton押したら削除
+  document.querySelectorAll('deleteButton').forEach((item) => {
+    item.addEventListener('click', () => {
+      // TODO:html削除する
+      // TODO:localstrageからデータを削除する
     })
   })
 

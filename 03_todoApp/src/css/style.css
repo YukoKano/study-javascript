@@ -38,3 +38,7 @@ body {
 .overdue {
   color: red;
 }
+
+.deleteButton {
+  margin-left: 8px;
+}
