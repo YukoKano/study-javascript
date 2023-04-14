@@ -46,7 +46,7 @@ window.onload = () => {
 
     checkbox.addEventListener('change', (item) => {
       const list = item.target.parentNode;
-      todoLists[list.dataset.list].isChecked = true;
+      todoLists[list.dataset.list - 1].isChecked = true;
 
       localStorage.setItem("todoLists", JSON.stringify(todoLists));
 
@@ -85,12 +85,12 @@ window.onload = () => {
     button.appendChild(document.createTextNode('削除'));
     button.addEventListener('click', (item) => {
       const list = item.target.parentNode;
-      todoLists[list.dataset.list].isDeleted = true;
+      todoLists[list.dataset.list - 1].isDeleted = true;
 
       localStorage.setItem("todoLists", JSON.stringify(todoLists));
 
       // 絶対表示しない
-      if (todoLists[list.dataset.list].isDeleted) {
+      if (todoLists[list.dataset.list - 1].isDeleted) {
         list.style.display = "none";
       }
     })
@@ -122,7 +122,7 @@ window.onload = () => {
 
       const jsonString = JSON.stringify(todoLists);
 
-      createTodo(list);
+      createTodo(list, todoLists.length);
       localStorage.setItem("todoLists", jsonString);
 
       todo.text.value = '';
