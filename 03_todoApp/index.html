@@ -10,18 +10,27 @@
   <title>todoApp</title>
 </head>
 <body>
-  <h1>todo list</h1>
+  <div class="wrapper">
+    <header class="header"></header>
+    <main class="container">
+      <h1>todo list</h1>
+      <div class="addListForm">
+        <div>
+          <input type="text" name="todo" class="todoText" value="" placeholder="todoを入力">
+          <input type="date" class="todoDue">
+        </div>
+        <button type="button" id="add" class="addButton">追加</button>
+      </div>
 
-  <input type="text" name="todo" class="todoText" value="" placeholder="todoを入力">
-  <input type="date" class="todoDue">
-  <button type="button" id="add" class="addButton">追加する</button>
+      <ul class="todoListBox"></ul>
 
-  <ul class="todoListBox"></ul>
+    </main>
+    <footer class="footer">
+      <button type="button" id="reset" class="resetButton">すべてのデータを削除する</button>
 
-  <button type="button" id="reset" class="resetButton">すべてのデータを削除する</button>
-
-  <input type="checkbox" id="show" class="showFinishedItemButton"></input>
-  <label for="show">完了したデータを表示する</label>
-
+      <input type="checkbox" id="show" class="showFinishedItemButton"></input>
+      <label for="show">完了したデータを表示する</label>
+    </footer>
+  </div>
 </body>
 </html>

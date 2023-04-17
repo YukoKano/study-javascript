@@ -72,7 +72,6 @@ window.onload = () => {
       const button = document.createElement('button');
       button.setAttribute('type', 'button');
       button.classList.add('deleteButton');
-      button.appendChild(document.createTextNode('削除'));
       button.addEventListener('click', (item) => {
         const list = item.target.parentNode;
         const listNum = list.dataset.list;
