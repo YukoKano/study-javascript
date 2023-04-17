@@ -24,7 +24,6 @@ window.onload = () => {
     }
   }
 
-
   // 完了したリストの表示を切り替える関数
   const toggleDisplay = (state) => {
     document.querySelectorAll('.finished').forEach((item) => {
@@ -37,71 +36,83 @@ window.onload = () => {
   };
 
   const createTodo = (item, index) => {
+    const addCheckbox = () => {
+      const checkbox = document.createElement('input');
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.setAttribute('id', `tab${index}`);
+      checkbox.classList.add('checkbox');
+
+      checkbox.addEventListener('change', (item) => {
+        const list = item.target.parentNode;
+        todoLists[list.dataset.list - 1].isChecked = true;
+
+        localStorage.setItem("todoLists", JSON.stringify(todoLists));
+
+        // checkされたら消える、外したら戻す
+        if (item.target.checked) {
+          list.classList.add('finished');
+          setTimeout((i) => { i.target.parentNode.classList.add('hide'); }, 1000, item);
+        } else {
+          list.classList.remove('finished');
+        }
+      })
+
+      // check済みなら表示しない
+      if (item.isChecked) {
+        list.classList.add('finished', 'hide');
+        checkbox.checked = true;
+      }
+
+      list.appendChild(checkbox);
+    }
+
+    const addLabel = () => {
+      const label = document.createElement('label');
+      label.setAttribute('for', `tab${index}`);
+      label.appendChild(document.createTextNode(item.content));
+      list.appendChild(label);
+
+      if (item.due != '') {
+        const due = document.createElement('span');
+        due.appendChild(document.createTextNode(item.due));
+
+        // 期限過ぎてるか判定
+        if (checkOverdue(item.due)) {
+          due.classList.add('overdue');
+        }
+        list.appendChild(due);
+      }
+    }
+
+    const addDeleteButton = () => {
+      const button = document.createElement('button');
+      button.setAttribute('type', 'button');
+      button.classList.add('deleteButton');
+      button.appendChild(document.createTextNode('削除'));
+      button.addEventListener('click', (item) => {
+        const list = item.target.parentNode;
+        todoLists[list.dataset.list - 1].isDeleted = true;
+
+        localStorage.setItem("todoLists", JSON.stringify(todoLists));
+
+        // 消したものは絶対表示しない
+        if (todoLists[list.dataset.list - 1].isDeleted) {
+          list.style.display = "none";
+        }
+      })
+
+      list.appendChild(button);
+    }
+
+    // list作成
     const list = document.createElement('li');
     list.setAttribute('data-list', index);
     list.classList.add('todoList');
 
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('id', `tab${index}`);
-    checkbox.classList.add('checkbox');
+    addCheckbox();
+    addLabel();
+    addDeleteButton();
 
-    checkbox.addEventListener('change', (item) => {
-      const list = item.target.parentNode;
-      todoLists[list.dataset.list - 1].isChecked = true;
-
-      localStorage.setItem("todoLists", JSON.stringify(todoLists));
-
-      // checkされたら消える、外したら戻す
-      if (item.target.checked) {
-        list.classList.add('finished');
-        setTimeout((i) => { i.target.parentNode.classList.add('hide'); }, 1000, item);
-      } else {
-        list.classList.remove('finished');
-      }
-    })
-
-    // check済みなら表示しない
-    if (item.isChecked) {
-      list.classList.add('finished', 'hide');
-      checkbox.checked = true;
-    }
-
-    list.appendChild(checkbox);
-
-    const label = document.createElement('label');
-    label.setAttribute('for', `tab${index}`);
-    label.appendChild(document.createTextNode(item.content));
-    list.appendChild(label);
-
-    if (item.due != '') {
-      const due = document.createElement('span');
-      due.appendChild(document.createTextNode(item.due));
-
-      // 期限過ぎてるか判定
-      if (checkOverdue(item.due)) {
-        due.classList.add('overdue');
-      }
-      list.appendChild(due);
-    }
-
-    const button = document.createElement('button');
-    button.setAttribute('type', 'button');
-    button.classList.add('deleteButton');
-    button.appendChild(document.createTextNode('削除'));
-    button.addEventListener('click', (item) => {
-      const list = item.target.parentNode;
-      todoLists[list.dataset.list - 1].isDeleted = true;
-
-      localStorage.setItem("todoLists", JSON.stringify(todoLists));
-
-      // 絶対表示しない
-      if (todoLists[list.dataset.list - 1].isDeleted) {
-        list.style.display = "none";
-      }
-    })
-
-    list.appendChild(button);
     todoListBox.appendChild(list);
   }
 
