@@ -24,6 +24,7 @@ window.onload = () => {
     }
   }
 
+
   // 完了したリストの表示を切り替える関数
   const toggleDisplay = (state) => {
     document.querySelectorAll('.finished').forEach((item) => {
@@ -42,6 +43,7 @@ window.onload = () => {
 
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
+    checkbox.setAttribute('id', `tab${index}`);
     checkbox.classList.add('checkbox');
 
     checkbox.addEventListener('change', (item) => {
@@ -66,7 +68,11 @@ window.onload = () => {
     }
 
     list.appendChild(checkbox);
-    list.appendChild(document.createTextNode(item.content));
+
+    const label = document.createElement('label');
+    label.setAttribute('for', `tab${index}`);
+    label.appendChild(document.createTextNode(item.content));
+    list.appendChild(label);
 
     if (item.due != '') {
       const due = document.createElement('span');
@@ -98,6 +104,7 @@ window.onload = () => {
     list.appendChild(button);
     todoListBox.appendChild(list);
   }
+
 
   if (localStorage.hasOwnProperty("todoLists")) {
     todoLists = JSON.parse(localStorage.getItem("todoLists"));
