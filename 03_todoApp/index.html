@@ -7,15 +7,16 @@
 
   <link rel="stylesheet" href="./src/css/style.css">
   <script src="./src/javascript/script.js"></script>
+  <script src="./src/javascript/module.js" type="module"></script>
   <title>todoApp</title>
 </head>
 <body>
   <div class="wrapper">
     <header class="header"></header>
     <main class="container">
-      <h1>todo list</h1>
+      <h1 class="title">todo list</h1>
       <div class="addListForm">
-        <div>
+        <div class="addListForm__input">
           <input type="text" name="todo" class="todoText" value="" placeholder="todoを入力">
           <input type="date" class="todoDue">
         </div>
@@ -26,10 +27,12 @@
 
     </main>
     <footer class="footer">
-      <button type="button" id="reset" class="resetButton">すべてのデータを削除する</button>
+      <button type="button" id="reset" class="resetButton">DELETE ALL DATA</button>
 
-      <input type="checkbox" id="show" class="showFinishedItemButton"></input>
-      <label for="show">完了したデータを表示する</label>
+      <div class="footer__showButton">
+        <label for="show" class="showFinishedItemLabel">実行済みを表示</label>
+        <input type="checkbox" id="show" class="showFinishedItemButton"></input>
+      </div>
     </footer>
   </div>
 </body>

@@ -15,46 +15,58 @@ body {
   background-color: #fff;
 }
 
-.header, .footer {
-  height: 52px;
+.header {
+  min-height: 52px;
   background-color: #9ccdfb;
 }
 
 .container {
   margin-top: 32px;
   padding-inline: 16px;
-  height: calc(100vh - 146px);
+  height: calc(100vh - 144px);
 }
 
-h1 {
+.title {
   font-size: 22px;
+  color: #333333;
 }
 
 .addListForm {
   display: flex;
   justify-content: space-between;
-  height: 48px;
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
-.addListForm input[type="text"] {
+.addListForm__input {
+  width: 100%;
+}
+
+.todoText {
   border: 1px solid #e9e9e9;
   padding: 14px 8px;
-  max-width: 180px;
+  width: 50%;
+  min-width: 50px;
   height: 100%;
 }
 
-.addListForm input[type="date"] {
-  border: 1px solid #e9e9e9;
-  padding: 14px 8px;
+.todoText::placeholder {
+  font-weight: bold;
+  color: #646464;
 }
 
-.addListForm button {
+.todoDue {
+  border: 1px solid #e9e9e9;
+  padding: 14px 6px;
+  max-width: 100px;
+  color: #646464;
+}
+
+.addButton {
   background-color: #3e6f9c;
   color: #ffffff;
   border: none;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   padding: 14px 8px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
@@ -69,23 +81,27 @@ h1 {
 }
 
 .todoList {
-  display: flex;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-template-rows: 1fr auto;
   align-items: center;
   position: relative;
   margin-top: 12px;
   padding-right: 48px;
+  gap: 4px 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e1e1e1;
 }
 
 .todoList .checkbox {
   margin-right: 8px;
   width: 32px;
   height: 32px;
-  /* border: 2px solid ; */
   border-radius: 2px;
-  flex-shrink: 0;
 }
 
 .todoList label {
+  color: #333333;
   font-size: 14px;
   font-weight: bold;
   line-height: 1.6;
@@ -93,36 +109,24 @@ h1 {
 }
 
 .todoList span {
-  margin-left: 16px;
   color: #808080;
   font-size: 12px;
-  flex-shrink: 0;
+  grid-column: 2/2;
+  grid-row: 2/2;
 }
 
-.resetButton {
-  margin-left: 16px;
-  margin-top: 16px;
-}
-
-.finished {
-  opacity: 0.5;
-}
-
-.finished.hide {
-  display: none;
-}
-
-.overdue {
-  color: red !important;
+.todoList span.overdue {
+  color: red;
 }
 
 .deleteButton {
   position: absolute;
+  top: 0;
   right: 0;
   border: none;
   background-color: white;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 }
 
@@ -142,4 +146,47 @@ h1 {
 
 .deleteButton::after {
   transform: rotate(45deg);
+}
+
+.resetButton {
+  background-color: #202020;
+  padding:  12px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.footer {
+  background-color: #9ccdfb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.footer__showButton {
+  display: flex;
+  align-items: center;
+}
+
+.showFinishedItemLabel {
+  font-weight: bold;
+  color: #333333;
+  font-size: 14px;
+}
+
+.showFinishedItemButton {
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.finished {
+  opacity: 0.5;
+}
+
+.finished.hide {
+  display: none;
 }
