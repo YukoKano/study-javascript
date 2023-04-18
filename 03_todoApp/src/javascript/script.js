@@ -100,7 +100,7 @@ window.onload = () => {
       list.appendChild(button);
     }
 
-    // main create list -------------------------------------
+    // main create list ---------------------------------------
     const list = document.createElement('li');
     list.setAttribute('data-list', index);
     list.classList.add('todoList');
