@@ -1,46 +1,6 @@
-export const todo = {
-  text: document.querySelector('.todoText'),
-  due: document.querySelector('.todoDue')
-}
+const todoListBox = document.querySelector('.todoListBox');
 
-export const todoListBox = document.querySelector('.todoListBox');
-
-export const addButton = document.querySelector('.addButton');
-export const resetButton = document.querySelector('.resetButton');
-export const showFinishedButton = document.querySelector('.showFinishedItemButton');
-
-export const createTodo = (item, index) => {
-  const list = document.createElement('li');
-  list.setAttribute('data-list', index);
-  list.classList.add('todList');
-
-  addCheckbox(item,index, list);
-  addLabel(item, index, list);
-  addDeleteButton(list);
-
-  todoListBox.appendChild(list);
-}
-
-export const checkOverdue = (due) => {
-  const today = new Date(Date.now());
-  const deadline = new Date(due);
-  return (today > deadline ? true : false);
-}
-
-export const toggleDisplay = (state) => {
-  document.querySelectorAll('.finished').forEach((item) => {
-    switch (state) {
-      case 'hide':
-        item.classList.add('hide');
-        break;
-      case 'show':
-        item.classList.remove('hide');
-        break;
-    }
-  })
-};
-
-export const addCheckbox = (item, index, listItem) => {
+const addCheckbox = (item, index, listItem) => {
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('id', `tab${index}`);
@@ -70,7 +30,13 @@ export const addCheckbox = (item, index, listItem) => {
   listItem.appendChild(checkbox);
 }
 
-export const addLabel = (item, index, listItem) => {
+const checkOverdue = (due) => {
+  const today = new Date(Date.now());
+  const deadline = new Date(due);
+  return (today > deadline ? true : false);
+}
+
+const addLabel = (item, index, listItem) => {
   const label = document.createElement('label');
   label.setAttribute('for', `tab${index}`);
   label.appendChild(document.createTextNode(item.content));
@@ -85,7 +51,7 @@ export const addLabel = (item, index, listItem) => {
   }
 }
 
-export const addDeleteButton = (listItem) => {
+const addDeleteButton = (listItem) => {
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('deleteButton');
@@ -104,4 +70,16 @@ export const addDeleteButton = (listItem) => {
   })
 
   listItem.appendChild(button);
+}
+
+export const createTodo = (item, index) => {
+  const list = document.createElement('li');
+  list.setAttribute('data-list', index);
+  list.classList.add('todoList');
+
+  addCheckbox(item,index, list);
+  addLabel(item, index, list);
+  addDeleteButton(list);
+
+  todoListBox.appendChild(list);
 }

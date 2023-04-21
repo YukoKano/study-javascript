@@ -1,8 +1,18 @@
-import { checkOverdue, toggleDisplay, addCheckbox, addLabel, addDeleteButton,createTodo, todo, todoListBox,addButton, resetButton, showFinishedButton } from "./module.js"
+import { toggleDisplay } from "./toggleDisplay.js"
+import { createTodo } from "./createTodo.js";
 
 window.onload = () => {
   let todoLists = [];
-  // main-------------------------------------------------------------------------
+
+  const todo = {
+    text: document.querySelector('.todoText'),
+    due: document.querySelector('.todoDue')
+  }
+
+  const addButton = document.querySelector('.addButton');
+  const resetButton = document.querySelector('.resetButton');
+  const showFinishedButton = document.querySelector('.showFinishedItemButton');
+
   if (localStorage.hasOwnProperty('todoLists')) {
     todoLists = JSON.parse(localStorage.getItem('todoLists'));
     for (var i = 0; i < todoLists.length; i++) {
