@@ -1,31 +1,31 @@
 import { todoLists } from "./renderLists.js"
 import { createTodo } from "./createTodo.js";
 
-const todo = {
+const todoForm = {
   text: document.querySelector('.todoText'),
-  due: document.querySelector('.todoDue')
+  due: document.querySelector('.todoDue'),
+  addButton: document.querySelector('.addButton')
 }
 
-const addButton = document.querySelector('.addButton');
-
 export const addButtonClickListener = () => {
-  addButton.addEventListener('click', () => {
-    if (todo.text.value != '') {
-      const list = {
-        content: todo.text.value,
-        due: todo.due.value,
+  todoForm.addButton.addEventListener('click', () => {
+    if (todoForm.text.value !== '') {
+      const newList = {
+        content: todoForm.text.value,
+        due: todoForm.due.value,
         isChecked: false,
         isDeleted: false
       };
-      todoLists.push(list);
+      todoLists.push(newList);
 
-      const jsonString = JSON.stringify(todoLists);
+      const updatedListsJson = JSON.stringify(todoLists);
+      localStorage.setItem('todoLists', updatedListsJson);
 
-      createTodo(list, todoLists.length);
-      localStorage.setItem('todoLists', jsonString);
+      const newListIndex = todoLists.indexOf(newList); // length - 1番目でもいい
+      createTodo(newList, newListIndex);
 
-      todo.text.value = '';
-      todo.due.value = '';
+      todoForm.text.value = '';
+      todoForm.due.value = '';
     }
   })
 }
