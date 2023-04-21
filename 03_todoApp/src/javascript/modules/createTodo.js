@@ -1,3 +1,6 @@
+import { displayNone } from "./displayNone.js";
+import { todoLists } from "./renderLists.js"
+
 const todoListBox = document.querySelector('.todoListBox');
 
 const addCheckbox = (item, index, listItem) => {
@@ -6,9 +9,14 @@ const addCheckbox = (item, index, listItem) => {
   checkbox.setAttribute('id', `tab${index}`);
   checkbox.classList.add('checkbox');
 
+  if (item.isChecked) {
+    listItem.classList.add('finished', 'hide');
+    checkbox.checked = true;
+  }
+
   checkbox.addEventListener('change', (item) => {
     const list = item.target.parentNode;
-    const listNum = list.dataset.list;
+    const listNum = list.dataset.list - 1; // 作りたては-1 リロード時は-1なし
 
     if (item.target.checked) {
       todoLists[listNum].isChecked = true;
@@ -22,18 +30,25 @@ const addCheckbox = (item, index, listItem) => {
     localStorage.setItem('todoLists', JSON.stringify(todoLists));
   })
 
-  if (item.isChecked) {
-    listItem.classList.add('finished', 'hide');
-    checkbox.checked = true;
-  }
-
   listItem.appendChild(checkbox);
 }
 
 const checkOverdue = (due) => {
   const today = new Date(Date.now());
   const deadline = new Date(due);
-  return (today > deadline ? true : false);
+  const result = today > deadline;
+  return result;
+}
+
+const addDue = (item, listItem) => {
+  if (item.due != '') {
+    const due = document.createElement('span');
+    due.appendChild(document.createTextNode(item.due));
+
+    checkOverdue(item.due) && due.classList.add('overdue');
+
+    listItem.appendChild(due);
+  }
 }
 
 const addLabel = (item, index, listItem) => {
@@ -42,31 +57,23 @@ const addLabel = (item, index, listItem) => {
   label.appendChild(document.createTextNode(item.content));
   listItem.appendChild(label);
 
-  if (item.due != '') {
-    const due = document.createElement('span');
-    due.appendChild(document.createTextNode(item.due));
-
-    checkOverdue(item.due) && due.classList.add('overdue');
-    listItem.appendChild(due);
-  }
+  addDue(item, listItem);
 }
 
 const addDeleteButton = (listItem) => {
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('deleteButton');
+
   button.addEventListener('click', (item) => {
     const list = item.target.parentNode;
-    const listNum = list.dataset.list;
+    console.log(list)
+    const listNum = list.dataset.list; // 作りたては-1 リロード時は-1なし
     todoLists[listNum].isDeleted = true;
     localStorage.setItem('todoLists', JSON.stringify(todoLists));
 
-    const displayNone = () => {
-      list.style.display = 'none';
-    }
-
     // 消したものは絶対表示しない
-    todoLists[listNum].isDeleted && displayNone();
+    todoLists[listNum].isDeleted && displayNone(list);
   })
 
   listItem.appendChild(button);
