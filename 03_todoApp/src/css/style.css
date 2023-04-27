@@ -7,13 +7,14 @@
 body {
   font-family: "helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #333333;
-  position: relative;
+  height: 100vh;
 }
 
 .wrapper {
   width: 100%;
   background-color: white;
   position: relative;
+  overflow-y: hidden;
 }
 
 .header {
