@@ -2,9 +2,9 @@ import { todoLists } from "./renderLists.js"
 import { createTodo } from "./createTodo.js";
 
 const todoForm = {
-  text: document.querySelector('.todoText'),
-  due: document.querySelector('.todoDue'),
-  addButton: document.querySelector('.addButton')
+  text: document.querySelector('[data-js="todoText"]'),
+  due: document.querySelector('[data-js="todoDue"]'),
+  addButton: document.querySelector('[data-js="addButton"]')
 }
 
 export const addButtonClickListener = () => {

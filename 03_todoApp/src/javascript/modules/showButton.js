@@ -11,7 +11,7 @@ const toggleDisplay = (state) => {
   })
 };
 
-const showFinishedButton = document.querySelector('.showFinishedItemButton');
+const showFinishedButton = document.querySelector('[data-js="showFinishedItemButton"]');
 
 export const showButtonClickListener = () => {
   showFinishedButton.addEventListener('click', () => {

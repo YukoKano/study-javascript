@@ -1,7 +1,7 @@
 import { displayNone } from "./displayNone.js";
 import { todoLists } from "./renderLists.js"
 
-const todoListBox = document.querySelector('.todoListBox');
+const todoListBox = document.querySelector('[data-js="todoListBox"]');
 
 const addCheckbox = (isChecked, listItem) => {
   const checkbox = document.createElement('input');
@@ -82,7 +82,7 @@ const addDeleteButton = (listItem) => {
 export const createTodo = (object, index) => {
   const list = document.createElement('li');
   list.setAttribute('data-list', index); // indexは、配列の0から数えて何番目か
-  list.classList.add('todoList');
+  list.classList.add('todoList__item');
 
   addCheckbox(object.isChecked, list);
   addLabel(object.content, object.due, list);

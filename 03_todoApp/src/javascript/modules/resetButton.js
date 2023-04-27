@@ -1,6 +1,6 @@
 import { todoLists } from "./renderLists.js"
 
-const resetButton = document.querySelector('.resetButton');
+const resetButton = document.querySelector('[data-js="resetButton"]');
 
 export const resetButtonClickListener = () => {
   resetButton.addEventListener('click', () => {
@@ -8,7 +8,11 @@ export const resetButtonClickListener = () => {
     if (result) {
       localStorage.clear();
       todoLists.length = 0;
-      document.querySelectorAll('.todoList').forEach((item) => { item.remove(); })
+
+      const box = document.querySelector('[data-js="todoListBox"]');
+      while (box.firstChild) {
+        box.removeChild(box.firstChild);
+      }
     }
   });
 }
