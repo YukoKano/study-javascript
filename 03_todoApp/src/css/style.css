@@ -26,10 +26,11 @@ body {
 
 .container {
   padding-inline: 16px;
-  padding-top: 64px;
+  padding-top: 72px;
   padding-bottom: 72px;
   margin-top: 32px;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .title {
@@ -45,6 +46,9 @@ body {
 
 .addListForm__input {
   width: calc(100% - 64px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .addListForm__textbox {
