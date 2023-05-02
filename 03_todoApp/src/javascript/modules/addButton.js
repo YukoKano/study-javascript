@@ -1,5 +1,5 @@
-import { todoLists } from "./renderLists.js"
 import { createTodo } from "./createTodo.js";
+import { loadListsArray } from "./loadListsArray.js";
 
 const todoForm = {
   text: document.querySelector('[data-js="todoText"]'),
@@ -10,6 +10,8 @@ const todoForm = {
 export const addButtonClickListener = () => {
   todoForm.addButton.addEventListener('click', () => {
     if (todoForm.text.value !== '') {
+      const todoLists = loadListsArray();
+
       const newList = {
         content: todoForm.text.value,
         due: todoForm.due.value,

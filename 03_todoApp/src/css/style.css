@@ -209,3 +209,7 @@ body {
 .finished.hide {
   display: none;
 }
+
+.displayNone {
+  display: none;
+}

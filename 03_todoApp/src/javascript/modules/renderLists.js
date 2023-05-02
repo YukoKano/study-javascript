@@ -1,12 +1,9 @@
 import { createTodo } from "./createTodo.js";
-
-export let todoLists = [];
+import { loadListsArray } from "./loadListsArray.js";
 
 export const renderLists = () => {
-  if (localStorage.hasOwnProperty('todoLists')) {
-    todoLists = JSON.parse(localStorage.getItem('todoLists'));
-    for (var i = 0; i < todoLists.length; i++) {
-      !todoLists[i].isDeleted && createTodo(todoLists[i], i);
-    }
+  const todoLists = loadListsArray();
+  for (var i = 0; i < todoLists.length; i++) {
+    !todoLists[i].isDeleted && createTodo(todoLists[i], i);
   }
 }
