@@ -1,4 +1,4 @@
-import { loadListsArray } from "./loadListsArray.js";
+import { loadLocalStorageLists } from "./loadLocalStorageLists.js";
 
 export const resetButtonClickListener = () => {
   const resetButton = document.querySelector('[data-js="resetButton"]');
@@ -8,7 +8,7 @@ export const resetButtonClickListener = () => {
     if (result) {
       localStorage.clear();
 
-      const todoLists = loadListsArray();
+      const todoLists = loadLocalStorageLists();
       todoLists.length = 0;
 
       const box = document.querySelector('[data-js="todoListBox"]');

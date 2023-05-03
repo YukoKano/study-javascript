@@ -1,4 +1,4 @@
-export const loadListsArray = () => {
+export const loadLocalStorageLists = () => {
   const array = localStorage.hasOwnProperty('todoLists')
     ? JSON.parse(localStorage.getItem('todoLists'))
     : []

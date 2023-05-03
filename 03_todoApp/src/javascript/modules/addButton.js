@@ -1,5 +1,5 @@
+import { createNewList } from "./createNewList.js";
 import { createTodo } from "./createTodo.js";
-import { loadListsArray } from "./loadListsArray.js";
 
 const todoForm = {
   text: document.querySelector('[data-js="todoText"]'),
@@ -10,21 +10,7 @@ const todoForm = {
 export const addButtonClickListener = () => {
   todoForm.addButton.addEventListener('click', () => {
     if (todoForm.text.value !== '') {
-      const todoLists = loadListsArray();
-
-      const newList = {
-        content: todoForm.text.value,
-        due: todoForm.due.value,
-        isChecked: false,
-        isDeleted: false
-      };
-      todoLists.push(newList);
-
-      const updatedListsJson = JSON.stringify(todoLists);
-      localStorage.setItem('todoLists', updatedListsJson);
-
-      const newListIndex = todoLists.indexOf(newList); // length - 1番目でもいい
-      createTodo(newList, newListIndex);
+      createNewList(todoForm.text.value, todoForm.due.value);
 
       todoForm.text.value = '';
       todoForm.due.value = '';

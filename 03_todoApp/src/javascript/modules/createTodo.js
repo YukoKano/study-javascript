@@ -6,11 +6,12 @@ export const createTodo = (object, index) => {
   const todoListBox = document.querySelector('[data-js="todoListBox"]');
 
   const list = document.createElement('li');
-  list.setAttribute('data-list', index); // indexは、配列の0から数えて何番目か
+  list.setAttribute('data-list', index); // ローカルストレージの配列で0から数えて何番目か
   list.classList.add('todoList__item');
 
-  addCheckbox(object.isChecked, list);
-  addLabel(object.content, object.due, list);
+  // 引数objectのプロパティを使用して、liの子要素を作成する
+  addCheckbox(list, object.isChecked);
+  addLabel(list, object.content, object.due);
   addDeleteButton(list);
 
   todoListBox.appendChild(list);
