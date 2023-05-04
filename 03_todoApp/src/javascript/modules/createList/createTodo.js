@@ -1,5 +1,5 @@
 import { addCheckbox } from "./addCheckbox.js";
-import { addLabel } from "./addLabel.js";
+import { addLabel } from "../addLabel.js";
 import { addDue } from "./addDue.js";
 import { addDeleteButton } from "./addDeleteButton.js";
 
@@ -14,7 +14,6 @@ export const createTodo = (object, index) => {
   addCheckbox(list, object.isChecked);
   addLabel(list, object.content);
   addDue(list, object.due);
-
   addDeleteButton(list);
 
   todoListBox.appendChild(list);

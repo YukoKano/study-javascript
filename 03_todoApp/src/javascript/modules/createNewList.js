@@ -1,6 +1,6 @@
 import { loadLocalStorageLists } from "./loadLocalStorageLists.js";
 import { updateLocalStorageLists } from "./updateLocalStorageLists.js";
-import { createTodo } from "./createTodo.js";
+import { createTodo } from "./createList/createTodo.js";
 
 export const createNewList = (text, due) => {
   const newList = {

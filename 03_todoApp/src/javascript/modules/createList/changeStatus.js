@@ -1,5 +1,5 @@
-import { loadLocalStorageLists } from "./loadLocalStorageLists.js";
-import { updateLocalStorageLists } from "./updateLocalStorageLists.js";
+import { loadLocalStorageLists } from "../loadLocalStorageLists.js";
+import { updateLocalStorageLists } from "../updateLocalStorageLists.js";
 
 export const changeStatus = (item, action) => {
   const todoLists = loadLocalStorageLists();

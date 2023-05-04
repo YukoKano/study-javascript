@@ -1,7 +1,7 @@
 import { renderLocalStorageLists } from "./modules/renderLocalStorageLists.js"
-import { addNewListButtonClickListener } from "./modules/addNewListButton.js"
-import { resetButtonClickListener } from "./modules/resetButton.js"
-import { showButtonClickListener } from "./modules/showButton.js"
+import { addNewListButtonClickListener } from "./modules/defaultButton/addNewListButton.js"
+import { resetButtonClickListener } from "./modules/defaultButton/resetButton.js"
+import { showButtonClickListener } from "./modules/defaultButton/showButton.js"
 
 window.onload = () => {
   // 最初にローカルストレージ内のリストを表示する

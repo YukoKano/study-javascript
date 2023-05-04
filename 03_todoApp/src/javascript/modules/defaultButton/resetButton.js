@@ -1,4 +1,4 @@
-import { loadLocalStorageLists } from "./loadLocalStorageLists.js";
+import { loadLocalStorageLists } from "../loadLocalStorageLists.js";
 
 export const resetButtonClickListener = () => {
   const resetButton = document.querySelector('[data-js="resetButton"]');
