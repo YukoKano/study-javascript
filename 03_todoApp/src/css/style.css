@@ -107,6 +107,10 @@ body {
   border-bottom: 1px solid #e1e1e1;
 }
 
+.todoList__item.hide {
+  display: none;
+}
+
 .todoList__item .checkbox {
   margin-right: 8px;
   width: 32px;
@@ -207,9 +211,5 @@ body {
 }
 
 .finished.hide {
-  display: none;
-}
-
-.displayNone {
   display: none;
 }

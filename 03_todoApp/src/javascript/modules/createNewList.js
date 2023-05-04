@@ -10,10 +10,13 @@ export const createNewList = (text, due) => {
     isDeleted: false
   };
 
+  // ローカルストレージのデータを更新する
   const updateLists = loadLocalStorageLists();
   updateLists.push(newList);
+
   updateLocalStorageLists(updateLists);
 
+  // 新しいリストを追加する
   const newListIndex = updateLists.indexOf(newList); // length - 1番目でもいい
   createTodo(newList, newListIndex);
 }

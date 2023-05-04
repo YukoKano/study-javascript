@@ -1,7 +1,7 @@
 import { loadLocalStorageLists } from "./loadLocalStorageLists.js";
 import { createTodo } from "./createTodo.js";
 
-export const renderLists = () => {
+export const renderLocalStorageLists = () => {
   const todoLists = loadLocalStorageLists();
 
   for (var i = 0; i < todoLists.length; i++) {

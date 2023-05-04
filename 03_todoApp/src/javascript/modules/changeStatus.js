@@ -9,12 +9,15 @@ export const changeStatus = (item, action) => {
   const listNum = list.dataset.list;
 
   switch (action) {
+    // 削除ボタンが押された時
     case "delete":
       todoLists[listNum].isDeleted = true;
-      list.classList.add('displayNone');
+      list.classList.add('hide');
       break;
 
+    // チェックボックスが押された時
     case "check":
+      // チェックボックスのステータス判定
       if (item.target.checked) {
         todoLists[listNum].isChecked = true;
         list.classList.add('finished');
