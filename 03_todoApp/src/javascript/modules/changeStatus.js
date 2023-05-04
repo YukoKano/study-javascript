@@ -6,12 +6,12 @@ export const changeStatus = (item, action) => {
 
    // itemの親要素を取得して、何番目のデータかを把握する
   const list = item.target.parentNode;
-  const listNum = list.dataset.list;
+  const targetListData = todoLists[list.dataset.list];
 
   switch (action) {
     // 削除ボタンが押された時
     case "delete":
-      todoLists[listNum].isDeleted = true;
+      targetListData.isDeleted = true;
       list.classList.add('hide');
       break;
 
@@ -19,11 +19,11 @@ export const changeStatus = (item, action) => {
     case "check":
       // チェックボックスのステータス判定
       if (item.target.checked) {
-        todoLists[listNum].isChecked = true;
+        targetListData.isChecked = true;
         list.classList.add('finished');
         setTimeout((i) => { i.target.parentNode.classList.add('hide'); }, 1000, item);
       } else {
-        todoLists[listNum].isChecked = false;
+        targetListData.isChecked = false;
         list.classList.remove('finished');
       }
       break;

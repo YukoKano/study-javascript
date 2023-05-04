@@ -1,5 +1,6 @@
 import { addCheckbox } from "./addCheckbox.js";
 import { addLabel } from "./addLabel.js";
+import { addDue } from "./addDue.js";
 import { addDeleteButton } from "./addDeleteButton.js";
 
 export const createTodo = (object, index) => {
@@ -11,7 +12,9 @@ export const createTodo = (object, index) => {
 
   // 引数objectのプロパティを使用して、liの子要素を作成する
   addCheckbox(list, object.isChecked);
-  addLabel(list, object.content, object.due);
+  addLabel(list, object.content);
+  addDue(list, object.due);
+
   addDeleteButton(list);
 
   todoListBox.appendChild(list);

@@ -1,6 +1,6 @@
 import { checkOverdue } from "./checkOverdue.js";
 
-export const addDue = (due, listItem) => {
+export const addDue = (listItem, due) => {
   if (due !== '') {
     const span = document.createElement('span');
     span.appendChild(document.createTextNode(due));

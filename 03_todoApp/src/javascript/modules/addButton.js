@@ -1,5 +1,4 @@
 import { createNewList } from "./createNewList.js";
-import { createTodo } from "./createTodo.js";
 
 const todoForm = {
   text: document.querySelector('[data-js="todoText"]'),

@@ -17,6 +17,6 @@ export const createNewList = (text, due) => {
   updateLocalStorageLists(updateLists);
 
   // 新しいリストを追加する
-  const newListIndex = updateLists.indexOf(newList); // length - 1番目でもいい
+  const newListIndex = updateLists[updateLists.length - 1]; // newListの配列番号(=一番最後)を取得
   createTodo(newList, newListIndex);
 }
