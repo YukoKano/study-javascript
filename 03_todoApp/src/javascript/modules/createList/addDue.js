@@ -1,4 +1,4 @@
-import { checkOverdue } from "../checkOverdue.js";
+import { checkOverdue } from "./checkOverdue.js";
 
 export const addDue = (listItem, due) => {
   if (due !== '') {
