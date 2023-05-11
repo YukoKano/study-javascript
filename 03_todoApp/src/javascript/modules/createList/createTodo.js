@@ -1,5 +1,5 @@
 import { addCheckbox } from "./addCheckbox.js";
-import { addLabel } from "../addLabel.js";
+import { addLabel } from "./addLabel.js";
 import { addDue } from "./addDue.js";
 import { addDeleteButton } from "./addDeleteButton.js";
 
