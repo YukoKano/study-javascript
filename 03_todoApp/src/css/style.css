@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #333333;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+
+.header {
+  height: 52px;
+  background-color: #9ccdfb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.container {
+  padding-inline: 16px;
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.addListForm {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.addListForm__input {
+  width: calc(100% - 64px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addListForm__textbox {
+  border: 1px solid #e9e9e9;
+  padding: 14px 8px;
+  width: calc(100% - 144px);
+  min-width: 100px;
+  height: 100%;
+}
+
+.addListForm__textbox::placeholder {
+  font-weight: bold;
+  color: #646464;
+}
+
+.addListForm__label {
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.addListForm__duedate {
+  border: 1px solid #e9e9e9;
+  padding: 14px 6px;
+  max-width: 64px;
+  height: 100%;
+  color: #646464;
+}
+
+.addListForm__addNewListButton {
+  background-color: #3e6f9c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 14px 8px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  width: 64px;
+}
+
+.todoLists {
+  margin-top: 32px;
+  list-style: none;
+}
+
+.todoList__item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  position: relative;
+  margin-top: 12px;
+  padding-right: 48px;
+  gap: 4px 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.todoList__item.hide {
+  display: none;
+}
+
+.todoList__item .checkbox {
+  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.todoList__item label {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.todoList__item span {
+  color: #808080;
+  font-size: 12px;
+  grid-column: 2/2;
+  grid-row: 2/2;
+}
+
+.todoList__item span.overdue {
+  color: red;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: white;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.deleteButton::before, .deleteButton::after {
+  position: absolute;
+  width: 24px;
+  height: 4px;
+  content: "";
+  display: block;
+  background-color: #9ccdfb;
+}
+
+.deleteButton::before {
+  transform: rotate(-45deg);
+
+}
+
+.deleteButton::after {
+  transform: rotate(45deg);
+}
+
+.footer {
+  background-color: #9ccdfb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.footer__resetButton {
+  background-color: #202020;
+  padding:  12px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.footer__showButton {
+  display: flex;
+  align-items: center;
+}
+
+.footer__showFinishedItemLabel {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.footer__showFinishedItemButton {
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.finished {
+  opacity: 0.5;
+}
+
+.finished.hide {
+  display: none;
+}
