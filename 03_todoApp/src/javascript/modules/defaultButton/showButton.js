@@ -1,19 +1,8 @@
-const toggleDisplay = (state) => {
-  document.querySelectorAll('.finished').forEach((item) => {
-    switch (state) {
-      case 'hide':
-        item.classList.add('hide');
-        break;
-      case 'show':
-        item.classList.remove('hide');
-        break;
-    }
-  })
-};
-
-const showFinishedButton = document.querySelector('[data-js="showFinishedItemButton"]');
+import { toggleDisplay } from "./toggleDisplay.js"
 
 export const showButtonClickListener = () => {
+  const showFinishedButton = document.querySelector('[data-js="showFinishedItemButton"]');
+
   showFinishedButton.addEventListener('click', () => {
     showFinishedButton.checked ? toggleDisplay('show') : toggleDisplay('hide');
   });
