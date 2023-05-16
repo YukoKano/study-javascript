@@ -10,6 +10,62 @@
   <title>test</title>
 </head>
 <body>
+  <div class="wrapper">
+    <form action="" method="post" class="form-example">
+      <fieldset>
+        <legend>車種情報入力</legend>
+        <label for="maker">メーカー名</label>
+        <select name="maker" id="maker" required>
+            <option value="">選択してください</option>
+            <option value="dog" selected>Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <optgroup label="Flying pets">
+              <option value="parrot">Parrot</option>
+              <option value="spider" disabled>Spider</option>
+              <option value="goldfish">Goldfish</option>
+            </optgroup>
+        </select>
 
+        <label for="maker">車種名</label>
+        <select name="carName" id="carName" required disabled>
+            <option value="">選択してください</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+
+        <label for="modelYear">年式</label>
+        <select name="modelYear" id="modelYear" required>
+            <option value="">選択してください</option>
+            <option value="2023" selected>2023年式</option>
+        </select>
+
+        <label for="mileage">走行距離</label>
+        <select name="mileage" id="mileage" required>
+            <option value="">選択してください</option>
+            <option value="under10000">1万キロ未満</option>
+            <option value="10000">1万キロ以上</option>
+            <option value="20000">2万キロ以上</option>
+        </select>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>キャンペーンに応募しますか？</legend>
+        <label>
+          <input type="radio" name="yes">応募する
+        </label>
+        <label>
+          <input type="radio" name="no">応募しない
+        </label>
+      </fieldset>
+
+      <button>次へ</button>
+    </form>
+  </div>
 </body>
 </html>

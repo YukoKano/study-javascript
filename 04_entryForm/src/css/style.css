@@ -9,3 +9,24 @@ body {
   font-family: "helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #333333;
 }
+
+.wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 64px auto;
+}
+
+fieldset {
+  border: none;
+  margin-top: 32px;
+}
+
+legend {
+  font-weight: 600;
+  font-size: large;
+}
+
+label {
+  display: block;
+  margin-top: 16px;
+}
