@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./src/css/style.css">
-  <script src="./src/javascript/script.js"></script>
+  <script src="./src/javascript/main.js" type="module"></script>
   <title>test</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
       <fieldset>
         <legend>車種情報入力</legend>
         <label for="maker">メーカー名</label>
-        <select name="maker" id="maker" required>
+        <select name="maker" id="maker" required data-js="makerSelectItem">
             <option value="">選択してください</option>
             <option value="dog" selected>Dog</option>
             <option value="cat">Cat</option>
