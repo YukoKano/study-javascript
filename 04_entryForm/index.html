@@ -14,44 +14,40 @@
     <form action="" method="post" class="form-example">
       <fieldset>
         <legend>車種情報入力</legend>
+
         <label for="maker">メーカー名</label>
-        <select name="maker" id="maker" required data-js="makerSelectItem">
-            <option value="">選択してください</option>
-            <option value="dog" selected>Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <optgroup label="Flying pets">
-              <option value="parrot">Parrot</option>
-              <option value="spider" disabled>Spider</option>
-              <option value="goldfish">Goldfish</option>
-            </optgroup>
+        <select name="maker" id="maker" required data-js="makerSelectMenu">
+          <option value="" selected>選択してください</option>
         </select>
 
         <label for="maker">車種名</label>
-        <select name="carName" id="carName" required disabled>
-            <option value="">選択してください</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+        <select name="carName" id="carName" data-js="carSelectMenu" required disabled>
+          <option value="" selected>選択してください</option>
         </select>
 
         <label for="modelYear">年式</label>
         <select name="modelYear" id="modelYear" required>
-            <option value="">選択してください</option>
-            <option value="2023" selected>2023年式</option>
+          <option value="" selected>選択してください</option>
+          <option value="2023">2023年式</option>
+          <option value="2023">2022年式</option>
+          <option value="2023">2021年式</option>
+          <option value="2023">2020年式</option>
+          <option value="2023">2019年式</option>
+          <option value="2023">2018年式</option>
+          <option value="2023">2017年式</option>
         </select>
 
         <label for="mileage">走行距離</label>
         <select name="mileage" id="mileage" required>
-            <option value="">選択してください</option>
-            <option value="under10000">1万キロ未満</option>
-            <option value="10000">1万キロ以上</option>
-            <option value="20000">2万キロ以上</option>
+          <option value="" selected>選択してください</option>
+          <option value="under10000">1万キロ未満</option>
+          <option value="10000">1万キロ以上</option>
+          <option value="20000">2万キロ以上</option>
+          <option value="20000">3万キロ以上</option>
+          <option value="20000">4万キロ以上</option>
+          <option value="20000">5万キロ以上</option>
+          <option value="20000">6万キロ以上</option>
         </select>
-
       </fieldset>
 
       <fieldset>
