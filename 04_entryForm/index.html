@@ -15,38 +15,78 @@
       <fieldset>
         <legend>車種情報入力</legend>
 
-        <label for="maker">メーカー名</label>
+        <label for="maker" data-js="makerSelectMenuLabel">メーカー名<span class="requiredText">必須</span></label>
         <select name="maker" id="maker" required data-js="makerSelectMenu">
           <option value="" selected>選択してください</option>
         </select>
 
-        <label for="maker">車種名</label>
+        <label for="carName" data-js="carSelectMenuLabel">車種名<span class="requiredText">必須</span><span class="info">※メーカー名を選択後に選択できます</span></label>
         <select name="carName" id="carName" data-js="carSelectMenu" required disabled>
           <option value="" selected>選択してください</option>
         </select>
 
-        <label for="modelYear">年式</label>
+        <label for="modelYear" data-js="yearSelectMenuLabel">年式<span class="requiredText">必須</span></label>
         <select name="modelYear" id="modelYear" data-js="yearSelectMenu" required>
           <option value="" selected>選択してください</option>
         </select>
 
-        <label for="mileage">走行距離</label>
+        <label name="detail" for="detail">詳細を指定する</label>
+        <input type="checkbox" id="detail"></input>
+
+        <div class="detailBox" data-js="detailBox">
+          <label for="model">モデル・グレード<span class="optional">任意</span><span class="info">※上記3点を選択後に選択できます</span></label>
+          <select name="model" id="model" data-js="gradeSelectMenu" disabled>
+            <option value="">選択してください</option>
+            <option value="unknown">わからない</option>
+          </select>
+
+          <label for="color">車体の色<span class="optional">任意</span></label>
+          <select name="color" id="color">
+            <option value="">選択してください</option>
+            <option value="white">白</option>
+            <option value="gray">グレー</option>
+            <option value="black">黒</option>
+            <option value="silver">シルバー</option>
+            <option value="red">赤色</option>
+            <option value="yellow">黄色</option>
+            <option value="blue">青色</option>
+            <option value="green">緑色</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <label for="mileage" data-js="mileageSelectMenuLabel">走行距離<span class="requiredText">必須</span></label>
         <select name="mileage" id="mileage" data-js="mileageSelectMenu" required>
           <option value="" selected>選択してください</option>
         </select>
+
+        <button type="button" data-js="step1NextButton">次へ</button>
       </fieldset>
 
-      <fieldset>
-        <legend>キャンペーンに応募しますか？</legend>
+
+      <fieldset class="hide" data-js="step2Fieldset">
+        <legend>キャンペーンに応募しますか？<span class="requiredText">必須</span></legend>
         <label>
           <input type="radio" name="campaign" value="yes" required>応募する
         </label>
         <label>
           <input type="radio" name="campaign" value="no">応募しない
         </label>
+        <button type="button" data-js="step2ConfirmButton">確認画面へ進む</button>
       </fieldset>
 
-      <button>次へ</button>
+      <div class="hide" data-js="confirmation">
+        <p class="title">入力内容の確認</p>
+        <p>メーカー：</p>
+        <p>車種名：</p>
+        <p>年式：</p>
+        <p>モデル・グレード</p>
+        <p>車体の色：</p>
+        <p>走行距離：</p>
+        <p>キャンペーンに応募：</p>
+        <button type="submit">申し込む</button>
+        <button type="button">入力内容を変更する</button>
+      </div>
     </form>
   </div>
 </body>

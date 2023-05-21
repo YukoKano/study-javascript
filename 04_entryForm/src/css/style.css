@@ -12,7 +12,7 @@ body {
 
 .wrapper {
   width: 100%;
-  max-width: 640px;
+  max-width: 400px;
   margin: 64px auto;
 }
 
@@ -29,4 +29,56 @@ legend {
 label {
   display: block;
   margin-top: 16px;
+}
+
+.requiredText {
+  font-size: small;
+  padding: 2px 4px;
+  color: red;
+  &.ok {
+    color: green;
+  }
+}
+
+.optional {
+  font-size: small;
+  padding: 2px 4px;
+  color: Gray;
+
+}
+
+.info {
+  margin-left: 4px;
+  color: #646464;
+  font-size: small;
+}
+
+label[for="detail"]::before {
+  content: "▼";
+  margin-right: 4px;
+}
+#detail {
+  display: none;
+}
+.detailBox {
+  display: none;
+  padding: 8px 16px;
+  &.open {
+    display: block;
+  }
+}
+
+button {
+  display: block;
+  margin-top: 32px;
+}
+
+.hide {
+  display: none;
+}
+
+.title {
+  margin-top: 32px;
+  font-weight: bold;
+  font-size: large;
 }
