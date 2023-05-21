@@ -47,7 +47,6 @@ export const createCarSelectItem = () => {
 
     // メーカー名にあった車種をoptionタグに追加する
     const makerItem = makerSelectMenu.value;
-    console.log(makerItem);
 
     // 選択してください、だった場合、車種名のselectを選択できないようにする
     if (makerItem !== "") {
