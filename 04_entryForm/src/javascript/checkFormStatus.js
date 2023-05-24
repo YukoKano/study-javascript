@@ -1,4 +1,4 @@
-export const toggleRequiedText = () => {
+export const checkFormStatus = () => {
   const selectMenuList = [
     {
       name: "maker",
@@ -22,18 +22,23 @@ export const toggleRequiedText = () => {
     }
   ]
 
-  selectMenuList.forEach((item) => {
-    const menu = item.menu;
+  var resultList = new Object();
 
-    menu.addEventListener("change", () => {
-      const required = item.label.querySelector(".requiredText");
-      if (menu.value !== "") {
-        required.textContent = "ok"
-        required.classList.add("ok")
+  selectMenuList.forEach((item) => {
+    if (item.menu.value !== "") {
+      resultList[item.name] = true;
+    } else {
+      resultList[item.name] = false;
+    }
+
+    item.menu.addEventListener("change", () => {
+      if (item.menu.value !== "") {
+        resultList[item.name] = true;
       } else {
-        required.textContent = "必須"
-        required.classList.remove("ok")
+        resultList[item.name] = false;
       }
-    })
+    });
   })
+
+  return resultList;
 }

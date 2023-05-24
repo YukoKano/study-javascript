@@ -8,7 +8,6 @@ import { toggleRequiedText } from "./toggleRequiedText.js";
 import { step1ButtonAction } from "./step1ButtonAction.js";
 import { step2ConfirmButtonAction } from "./step2ConfirmButtonAction.js";
 
-
 // 画像に関わる処理とかがない限り、初期化処理は↓で書くのが基本
 window.addEventListener('DOMContentLoaded', () => {
     createMakerSelectItem();

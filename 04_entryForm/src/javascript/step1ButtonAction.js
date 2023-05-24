@@ -1,39 +1,11 @@
-export const step1ButtonAction = () => {
-  const selectMenuList = [
-    {
-      name: "maker",
-      menu: document.querySelector("[data-js='makerSelectMenu']"),
-      label: document.querySelector("[data-js='makerSelectMenuLabel']"),
-    },
-    {
-      name: "car",
-      menu: document.querySelector("[data-js='carSelectMenu']"),
-      label: document.querySelector("[data-js='carSelectMenuLabel']"),
-    },
-    {
-      name: "maker",
-      menu: document.querySelector("[data-js='yearSelectMenu']"),
-      label: document.querySelector("[data-js='yearSelectMenuLabel']"),
-    },
-    {
-      name: "mileage",
-      menu: document.querySelector("[data-js='mileageSelectMenu']"),
-      label: document.querySelector("[data-js='mileageSelectMenuLabel']"),
-    }
-  ]
+import { checkFormStatus } from "./checkFormStatus.js";
 
+export const step1ButtonAction = () => {
   const step1Button = document.querySelector("[data-js='step1NextButton']");
 
   step1Button.addEventListener("click", () => {
-    // 必須項目のmenuに項目があるかどうか
-    const resultList = [];
-    selectMenuList.forEach((item) => {
-      if (item.menu.value === "") {
-        resultList.push(false);
-      } else {
-        resultList.push(true);
-      }
-    })
+    const formStatusObj = checkFormStatus();
+    const resultList = Object.keys(formStatusObj).map((key) => formStatusObj[key]);
 
     // 全てOKか判定
     const result = resultList.every((item) => item === true);
