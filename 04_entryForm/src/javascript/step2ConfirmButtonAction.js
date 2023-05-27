@@ -1,4 +1,5 @@
 import { checkFormStatus } from "./checkFormStatus.js";
+import { insertFormValue } from "./insertFormValue.js";
 import { returnCustomerInformationFormObject } from "./returnCustomerInformationFormObject.js"
 
 export const step2ConfirmButtonAction = () => {
@@ -10,5 +11,6 @@ export const step2ConfirmButtonAction = () => {
     console.log(customerInfo);
 
     checkFormStatus(customerInfo, confirmation);
+    insertFormValue();
   })
 }

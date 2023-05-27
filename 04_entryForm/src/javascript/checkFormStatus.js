@@ -1,6 +1,4 @@
 export const checkFormStatus = (items, nextStep) => {
-  // 必須のものをobjectにして配列に格納する
-
   // 結果を格納する
   let resultList = [];
   items.forEach((item) => {

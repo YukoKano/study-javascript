@@ -40,13 +40,13 @@
         <input type="checkbox" id="detail"></input>
 
         <div class="detailBox" data-js="detailBox">
-          <label for="model">モデル・グレード<span class="optional">任意</span><span class="info">※上記3点を選択後に選択できます</span></label>
+          <label for="model" data-js="modelSelectMenuLabel">モデル・グレード<span class="optional">任意</span><span class="info">※上記3点を選択後に選択できます</span></label>
           <select name="model" id="model" data-js="gradeSelectMenu" disabled>
             <option value="">選択してください</option>
             <option value="unknown">わからない</option>
           </select>
 
-          <label for="color">車体の色<span class="optional">任意</span></label>
+          <label for="color" data-js="colorSelectMenuLabel">車体の色<span class="optional">任意</span></label>
           <select name="color" id="color" data-js="colorSelectMenu">
             <option value="">選択してください</option>
           </select>
@@ -98,13 +98,7 @@
 
       <div class="hide" data-js="confirmation">
         <p class="title">入力内容の確認</p>
-        <p>メーカー：</p>
-        <p>車種名：</p>
-        <p>年式：</p>
-        <p>モデル・グレード</p>
-        <p>車体の色：</p>
-        <p>走行距離：</p>
-        <p>キャンペーンに応募：</p>
+        <div data-js="confirmationResult"></div>
         <button type="submit">申し込む</button>
         <button type="button">入力内容を変更する</button>
       </div>
