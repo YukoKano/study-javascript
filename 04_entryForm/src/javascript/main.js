@@ -4,7 +4,7 @@ import { createYearSelectItem } from "./createYearSelectItem.js";
 import { createMileageSelectItem } from "./createMileageSelectItem.js";
 import { toggleDetail } from "./toggleDetail.js";
 import { createCarGradeSelectItem } from "./createCarGradeSelectItem.js";
-import { toggleRequiedText } from "./toggleRequiedText.js";
+import { toggleRequiredText } from "./toggleRequiredText.js";
 import { step1ButtonAction } from "./step1ButtonAction.js";
 import { step2ConfirmButtonAction } from "./step2ConfirmButtonAction.js";
 
@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     toggleDetail();
     createCarGradeSelectItem();
-    toggleRequiedText();
+    toggleRequiredText();
 
     step1ButtonAction();
 

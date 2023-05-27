@@ -1,22 +1,14 @@
+import { checkFormStatus } from "./checkFormStatus.js";
+import { returnCustomerInformationFormObject } from "./returnCustomerInformationFormObject.js"
+
 export const step2ConfirmButtonAction = () => {
   const step2Button = document.querySelector("[data-js='step2ConfirmButton']");
   const confirmation = document.querySelector("[data-js='confirmation']");
 
-
   step2Button.addEventListener("click", () => {
-    const campaignLabel = document.querySelectorAll("input[name='campaign']");
+    const customerInfo = returnCustomerInformationFormObject();
+    console.log(customerInfo);
 
-    let value;
-    for (const option of campaignLabel) {
-      if (option.checked) {
-        value = option.value;
-      }
-    }
-
-    if (value !== undefined) {
-      confirmation.classList.remove("hide");
-    } else {
-      alert("必須項目を選択してください");
-    }
+    checkFormStatus(customerInfo, confirmation);
   })
 }

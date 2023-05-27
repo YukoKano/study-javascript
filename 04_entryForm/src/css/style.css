@@ -82,3 +82,8 @@ button {
   font-weight: bold;
   font-size: large;
 }
+
+.attentionText {
+  color: red;
+  font-size: small;
+}

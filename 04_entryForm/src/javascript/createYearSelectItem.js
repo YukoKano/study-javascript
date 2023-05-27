@@ -4,7 +4,7 @@ export const createYearSelectItem = () => {
   const basicYear = 2023;
   const yearRange = 15;
 
-  const yearSelectMenu = document.querySelector("[data-js='yearSelectMenu']");
+  const modelYearSelectMenu = document.querySelector("[data-js='modelYearSelectMenu']");
 
   for (let i = 0; i < yearRange; i++) {
     const year = basicYear - i;
@@ -14,6 +14,6 @@ export const createYearSelectItem = () => {
       label: `${year}年式`
     }
     const option = createOption(item);
-    yearSelectMenu.appendChild(option);
+    modelYearSelectMenu.appendChild(option);
   }
 }

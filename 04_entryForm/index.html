@@ -19,16 +19,22 @@
         <select name="maker" id="maker" required data-js="makerSelectMenu">
           <option value="" selected>選択してください</option>
         </select>
+        <p class="hide attentionText" data-js="makerAttention">メーカー名を入力してください</p>
 
-        <label for="carName" data-js="carSelectMenuLabel">車種名<span class="requiredText">必須</span><span class="info">※メーカー名を選択後に選択できます</span></label>
+
+        <label for="carName" data-js="carNameSelectMenuLabel">車種名<span class="requiredText">必須</span><span class="info">※メーカー名を選択後に選択できます</span></label>
         <select name="carName" id="carName" data-js="carSelectMenu" required disabled>
           <option value="" selected>選択してください</option>
         </select>
+        <p class="hide attentionText" data-js="carNameAttention">車種名を入力してください</p>
 
-        <label for="modelYear" data-js="yearSelectMenuLabel">年式<span class="requiredText">必須</span></label>
-        <select name="modelYear" id="modelYear" data-js="yearSelectMenu" required>
+
+        <label for="modelYear" data-js="modelYearSelectMenuLabel">年式<span class="requiredText">必須</span></label>
+        <select name="modelYear" id="modelYear" data-js="modelYearSelectMenu" required>
           <option value="" selected>選択してください</option>
         </select>
+        <p class="hide attentionText" data-js="modelYearAttention">年式を入力してください</p>
+
 
         <label name="detail" for="detail">詳細を指定する</label>
         <input type="checkbox" id="detail"></input>
@@ -59,19 +65,38 @@
         <select name="mileage" id="mileage" data-js="mileageSelectMenu" required>
           <option value="" selected>選択してください</option>
         </select>
+        <p class="hide attentionText" data-js="mileageAttention">走行距離を入力してください</p>
 
         <button type="button" data-js="step1NextButton">次へ</button>
       </fieldset>
 
-
       <fieldset class="hide" data-js="step2Fieldset">
-        <legend>キャンペーンに応募しますか？<span class="requiredText">必須</span></legend>
+        <legend>お客様情報の入力</legend>
+        <label for="customerName" data-js="customerNameLabel">お名前<span class="requiredText">必須</span>
+        </label>
+        <input type="text" name="customerName" id="customerName" autocomplete="name" required>
+        <p class="hide attentionText" data-js="customerNameAttention">お名前を入力してください</p>
+
+        <label for="customerTell" data-js="customerTelLabel">電話番号<span class="requiredText">必須</span>
+        </label>
+        <input type="tel" name="customerTel" id="customerTel" autocomplete="tel" required>
+        <p class="hide attentionText" data-js="customerTelAttention">電話番号を入力してください</p>
+
+        <label for="customerEmail" data-js="customerEmailLabel">メールアドレス<span class="requiredText">必須</span>
+        </label>
+        <input type="email" name="customerEmail" id="customerEmail" autocomplete="email" placeholder="test@example.com" required>
+        <p class="hide attentionText" data-js="customerEmailAttention">メールアドレスを入力してください</p>
+
+        <label data-js="campaignLabel">キャンペーンに応募しますか？<span class="requiredText">必須</span></label>
+
         <label>
           <input type="radio" name="campaign" value="yes" required>応募する
         </label>
         <label>
           <input type="radio" name="campaign" value="no">応募しない
         </label>
+        <p class="hide attentionText" data-js="campaignAttention">キャンペーンを選択してください</p>
+
         <button type="button" data-js="step2ConfirmButton">確認画面へ進む</button>
       </fieldset>
 

@@ -5,7 +5,7 @@ export const createCarGradeSelectItem = () => {
   const gradeSelectMenu = document.querySelector("[data-js='gradeSelectMenu']");
   const makerSelectMenu = document.querySelector("[data-js='makerSelectMenu']");
   const carSelectMenu = document.querySelector("[data-js='carSelectMenu']");
-  const yearSelectMenu = document.querySelector("[data-js='yearSelectMenu']");
+  const modelYearSelectMenu = document.querySelector("[data-js='modelYearSelectMenu']");
 
   const yearRange = 5;
 
@@ -48,10 +48,10 @@ export const createCarGradeSelectItem = () => {
     }
   })
 
-  yearSelectMenu.addEventListener("change", () => {
+  modelYearSelectMenu.addEventListener("change", () => {
     const makerItem = makerSelectMenu.value;
     const carItem = carSelectMenu.value;
-    const yearItem = yearSelectMenu.value;
+    const yearItem = modelYearSelectMenu.value;
 
     // DOM上のoptionタグをリセットする
     for (let i = gradeSelectMenu.options.length - 1; i >= 0; i--) {
