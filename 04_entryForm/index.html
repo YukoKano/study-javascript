@@ -47,17 +47,8 @@
           </select>
 
           <label for="color">車体の色<span class="optional">任意</span></label>
-          <select name="color" id="color">
+          <select name="color" id="color" data-js="colorSelectMenu">
             <option value="">選択してください</option>
-            <option value="white">白</option>
-            <option value="gray">グレー</option>
-            <option value="black">黒</option>
-            <option value="silver">シルバー</option>
-            <option value="red">赤色</option>
-            <option value="yellow">黄色</option>
-            <option value="blue">青色</option>
-            <option value="green">緑色</option>
-            <option value="other">その他</option>
           </select>
         </div>
 
@@ -76,6 +67,11 @@
         </label>
         <input type="text" name="customerName" id="customerName" autocomplete="name" required>
         <p class="hide attentionText" data-js="customerNameAttention">お名前を入力してください</p>
+
+        <label for="customerPostcode" data-js="customerPostcodeLabel">郵便番号<span class="requiredText">必須</span>
+        </label>
+        <input type="text" name="customerPostcode" id="customerPostcode" autocomplete="postal-code" required>
+        <p class="hide attentionText" data-js="customerPostcodeAttention">郵便番号を入力してください</p>
 
         <label for="customerTell" data-js="customerTelLabel">電話番号<span class="requiredText">必須</span>
         </label>

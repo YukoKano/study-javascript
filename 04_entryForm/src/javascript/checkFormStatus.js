@@ -13,8 +13,6 @@ export const checkFormStatus = (items, nextStep) => {
   if (result) {
     nextStep.classList.remove("hide");
   } else {
-    alert("未入力の項目があります。")
-
     // trueは隠す
     let truePosition = resultList.indexOf(true);
     while (truePosition !== -1) {
