@@ -5,11 +5,11 @@ export const checkFormStatus = (items, nextStep) => {
     resultList.push(item.status);
   })
 
-  console.log(resultList);
   // 全てOKか判定
   const result = resultList.every((item) => item === true);
   if (result) {
     nextStep.classList.remove("hide");
+    return true;
   } else {
     // trueは隠す
     let truePosition = resultList.indexOf(true);

@@ -9,17 +9,22 @@ export const insertFormValue = () => {
 
   const allList = selectMenuList.concat(selectOptionList).concat(inputList);
 
-  const confirmationBox = document.querySelector(`[data-js="confirmationResult"]`);
-  allList.forEach((item) => {
-    const p = document.createElement("p");
-
-    const label = item.label.innerText.replace(/ok|任意/,"").replace(/※(.*)/, "");
-    const value = item.menu.value;
-    const text = `${label}: ${value}`;
-
-    p.appendChild(document.createTextNode(text));
-
-    confirmationBox.appendChild(p);
-  })
   console.log(allList);
+
+  allList.forEach((item) => {
+    const element = document.querySelector(`[data-js="${item.name}ConfirmationResult"]`);
+
+    let value;
+    if (item.menu.selectedIndex !== undefined) {
+      if (item.menu.options[item.menu.selectedIndex].value === "") {
+        value = "指定なし";
+      } else {
+        value = item.menu.options[item.menu.selectedIndex].innerText;
+      }
+    } else {
+      value = item.menu.value;
+    }
+
+    element.append(document.createTextNode(value));
+  })
 }

@@ -10,7 +10,9 @@ export const step2ConfirmButtonAction = () => {
     const customerInfo = returnCustomerInformationFormObject();
     console.log(customerInfo);
 
-    checkFormStatus(customerInfo, confirmation);
-    insertFormValue();
+    const result = checkFormStatus(customerInfo, confirmation);
+    if (result) {
+      insertFormValue();
+    }
   })
 }

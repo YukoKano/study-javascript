@@ -11,10 +11,9 @@
 </head>
 <body>
   <div class="wrapper">
-    <form action="" method="post" class="form-example">
+    <form action="" method="post">
       <fieldset>
         <legend>車種情報入力</legend>
-
         <label for="maker" data-js="makerSelectMenuLabel">メーカー名<span class="requiredText">必須</span></label>
         <select name="maker" id="maker" required data-js="makerSelectMenu">
           <option value="" selected>選択してください</option>
@@ -98,7 +97,19 @@
 
       <div class="hide" data-js="confirmation">
         <p class="title">入力内容の確認</p>
-        <div data-js="confirmationResult"></div>
+        <div>
+          <p data-js="makerConfirmationResult">メーカー名：</p>
+          <p data-js="carNameConfirmationResult">車種名：</p>
+          <p data-js="modelYearConfirmationResult">年式：</p>
+          <p data-js="mileageConfirmationResult">走行距離：</p>
+          <p data-js="modelConfirmationResult">モデル・グレード：</p>
+          <p data-js="colorConfirmationResult">車体の色：</p>
+          <p data-js="customerNameConfirmationResult">お名前：</p>
+          <p data-js="customerPostcodeConfirmationResult">郵便番号：</p>
+          <p data-js="customerTelConfirmationResult">電話番号：</p>
+          <p data-js="customerEmailConfirmationResult">メールアドレス：</p>
+          <p data-js="campaignConfirmationResult">キャンペーンに応募しますか：</p>
+        </div>
         <button type="submit">申し込む</button>
         <button type="button">入力内容を変更する</button>
       </div>
