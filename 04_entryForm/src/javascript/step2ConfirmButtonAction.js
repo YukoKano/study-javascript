@@ -8,9 +8,8 @@ export const step2ConfirmButtonAction = () => {
 
   step2Button.addEventListener("click", () => {
     const customerInfo = returnCustomerInformationFormObject();
-    console.log(customerInfo);
-
     const result = checkFormStatus(customerInfo, confirmation);
+
     if (result) {
       insertFormValue();
     }

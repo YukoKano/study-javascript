@@ -9,8 +9,6 @@ export const insertFormValue = () => {
 
   const allList = selectMenuList.concat(selectOptionList).concat(inputList);
 
-  console.log(allList);
-
   allList.forEach((item) => {
     const element = document.querySelector(`[data-js="${item.name}ConfirmationResult"]`);
 
