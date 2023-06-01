@@ -4,7 +4,7 @@ import { createYearSelectItem } from "./createYearSelectItem.js";
 export const createCarGradeSelectItem = () => {
   const gradeSelectMenu = document.querySelector("[data-js='gradeSelectMenu']");
   const makerSelectMenu = document.querySelector("[data-js='makerSelectMenu']");
-  const carSelectMenu = document.querySelector("[data-js='carSelectMenu']");
+  const carNameSelectMenu = document.querySelector("[data-js='carNameSelectMenu']");
   const modelYearSelectMenu = document.querySelector("[data-js='modelYearSelectMenu']");
 
   const yearRange = 5;
@@ -43,14 +43,14 @@ export const createCarGradeSelectItem = () => {
   ]
 
   makerSelectMenu.addEventListener("change", () => {
-    if (carSelectMenu.value === "") {
+    if (carNameSelectMenu.value === "") {
       gradeSelectMenu.disabled = true;
     }
   })
 
   modelYearSelectMenu.addEventListener("change", () => {
     const makerItem = makerSelectMenu.value;
-    const carItem = carSelectMenu.value;
+    const carItem = carNameSelectMenu.value;
     const yearItem = modelYearSelectMenu.value;
 
     // DOM上のoptionタグをリセットする

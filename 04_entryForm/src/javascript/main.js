@@ -1,26 +1,44 @@
 import { createMakerSelectItem } from "./createMakerSelectItem.js";
 import { createCarSelectItem } from "./createCarSelectItem.js";
 import { createYearSelectItem } from "./createYearSelectItem.js";
+import { createCarGradeSelectItem } from "./createCarGradeSelectItem.js";
+import { createCarColorSelectItem } from "./createCarColorSelectItem.js"
 import { createMileageSelectItem } from "./createMileageSelectItem.js";
 import { toggleDetail } from "./toggleDetail.js";
-import { createCarGradeSelectItem } from "./createCarGradeSelectItem.js";
-import { toggleRequiredText } from "./toggleRequiredText.js";
-import { step1ButtonAction } from "./step1ButtonAction.js";
-import { step2ConfirmButtonAction } from "./step2ConfirmButtonAction.js";
-import { createCarColorSelectItem } from "./createCarColorSelectItem.js"
+// import { toggleRequiredText } from "./toggleRequiredText.js";
+// import { step1ButtonAction } from "./step1ButtonAction.js";
+// import { step2ConfirmButtonAction } from "./step2ConfirmButtonAction.js";
+
+import { addRequiredType } from "./addRequiredType.js";
+
+import { checkMakerFormStatus } from "./checkStatus/checkMakerFormStatus.js";
+import { checkCarNameFormStatus } from "./checkStatus/checkCarNameFormStatus.js";
+import { checkModelYearFormStatus } from "./checkStatus/checkModelYearFormStatus.js";
+import { checkMileageFormStatus } from "./checkStatus/checkMileageFormStatus.js";
+import { clickNextButton } from "./button/clickNextButton.js";
 
 // 画像に関わる処理とかがない限り、初期化処理は↓で書くのが基本
 window.addEventListener('DOMContentLoaded', () => {
     createMakerSelectItem();
     createCarSelectItem();
     createYearSelectItem();
+    createCarGradeSelectItem();
     createCarColorSelectItem();
     createMileageSelectItem();
 
     toggleDetail();
-    createCarGradeSelectItem();
-    toggleRequiredText();
+    // toggleRequiredText();
 
-    step1ButtonAction();
-    step2ConfirmButtonAction();
+    // step1ButtonAction();
+    // step2ConfirmButtonAction();
+
+
+    addRequiredType();
+
+    checkMakerFormStatus();
+    checkCarNameFormStatus();
+    checkModelYearFormStatus();
+    checkMileageFormStatus();
+
+    clickNextButton();
 });

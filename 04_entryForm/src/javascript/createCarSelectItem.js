@@ -34,14 +34,14 @@ export const createCarSelectItem = () => {
     }
   ];
 
-  const carSelectMenu = document.querySelector('[data-js="carSelectMenu"]');
+  const carNameSelectMenu = document.querySelector('[data-js="carNameSelectMenu"]');
   const makerSelectMenu = document.querySelector('[data-js="makerSelectMenu"]');
 
   makerSelectMenu.addEventListener("change", () => {
     // DOM上のcarNameにあるoptionタグをリセットする
-    for (let i = carSelectMenu.options.length - 1; i >= 0; i--) {
-      if (carSelectMenu.options[i].value !== '') {
-        carSelectMenu.remove(i);
+    for (let i = carNameSelectMenu.options.length - 1; i >= 0; i--) {
+      if (carNameSelectMenu.options[i].value !== '') {
+        carNameSelectMenu.remove(i);
       }
     }
 
@@ -50,14 +50,14 @@ export const createCarSelectItem = () => {
 
     // 選択してください、だった場合、車種名のselectを選択できないようにする
     if (makerItem !== "") {
-      carSelectMenu.disabled = false;
+      carNameSelectMenu.disabled = false;
       carList.forEach((item) => {
         if (item.maker === makerItem) {
-          carSelectMenu.appendChild(createOption(item));
+          carNameSelectMenu.appendChild(createOption(item));
         }
       })
     } else if (makerItem === "") {
-      carSelectMenu.disabled = true;
+      carNameSelectMenu.disabled = true;
     }
   })
 }
