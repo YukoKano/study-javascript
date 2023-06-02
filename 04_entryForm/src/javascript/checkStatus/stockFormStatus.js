@@ -1,10 +1,10 @@
 export let stockFormStatus = {};
 
-const resetFormStatus = (name) => {
-  const fields = document.querySelectorAll(`fieldset[name="${name}"] [data-js$="SelectMenu"][required]`);
+export const resetFormStatus = (name, fieldset) => {
+  const fields = document.querySelectorAll(`fieldset[name="${name}"] [data-js$="${fieldset}"][required]`);
   fields.forEach((item) => {
-    stockFormStatus[item.id] = false;
+    stockFormStatus[item.name] = false;
   })
 }
 
-resetFormStatus("carInformation");
+resetFormStatus("carInformation", "SelectMenu");

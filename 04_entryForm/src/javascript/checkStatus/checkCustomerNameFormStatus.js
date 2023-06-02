@@ -3,13 +3,12 @@ import { setFormStatus } from "./setFormStatus.js";
 import { addRequiredType } from "../addRequiredType.js"
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
 
-
-export const checkMakerFormStatus = () => {
-  const name = "maker";
+export const checkCustomerNameFormStatus = () => {
+  const name = "customerName";
 
   // console.log(`check ${name} status`);
 
-  const field = document.querySelector(`[data-js="${name}SelectMenu"]`);
+  const field = document.querySelector(`[data-js="${name}Input"]`);
   const label = document.querySelector(`label[for="${name}"]`);
 
   addRequiredType(field);
@@ -19,11 +18,15 @@ export const checkMakerFormStatus = () => {
   let status;
 
   field.addEventListener("change", () => {
-    if (field.value !== "") {
+    const regex = new RegExp(/^[一-龯ぁ-んァ-ヶー]+$/);
+    const isJapaneseInput = regex.test(field.value);
+
+    if (isJapaneseInput) {
       status = true;
     } else {
       status = false;
     }
+
     changeRequiredText(text, status);
     setFormStatus(name, status);
     setValueToComfirm(label, field);

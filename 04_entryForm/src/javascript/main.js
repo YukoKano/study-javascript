@@ -9,13 +9,19 @@ import { toggleDetail } from "./toggleDetail.js";
 // import { step1ButtonAction } from "./step1ButtonAction.js";
 // import { step2ConfirmButtonAction } from "./step2ConfirmButtonAction.js";
 
-import { addRequiredType } from "./addRequiredType.js";
+// import { addRequiredType } from "./addRequiredType.js";
 
 import { checkMakerFormStatus } from "./checkStatus/checkMakerFormStatus.js";
 import { checkCarNameFormStatus } from "./checkStatus/checkCarNameFormStatus.js";
 import { checkModelYearFormStatus } from "./checkStatus/checkModelYearFormStatus.js";
 import { checkMileageFormStatus } from "./checkStatus/checkMileageFormStatus.js";
 import { clickNextButton } from "./button/clickNextButton.js";
+import { checkCustomerNameFormStatus } from "./checkStatus/checkCustomerNameFormStatus.js";
+import { checkCustomerPostcodeFormStatus } from "./checkStatus/checkCustomerPostcodeFormStatus.js";
+import { checkCustomerEmailFormStatus } from "./checkStatus/checkCustomerEmailFormStatus.js";
+import { checkCustomerTelFormStatus } from "./checkStatus/checkCustomerTelFormStatus.js";
+import { checkCampaignFormStatus } from "./checkStatus/checkCampaignFormStatus.js";
+import { clickConfirmButton } from "./button/clickConfirmButton.js";
 
 // 画像に関わる処理とかがない限り、初期化処理は↓で書くのが基本
 window.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // step2ConfirmButtonAction();
 
 
-    addRequiredType();
+    // addRequiredType();
 
     checkMakerFormStatus();
     checkCarNameFormStatus();
@@ -41,4 +47,12 @@ window.addEventListener('DOMContentLoaded', () => {
     checkMileageFormStatus();
 
     clickNextButton();
+
+    checkCustomerNameFormStatus();
+    checkCustomerPostcodeFormStatus();
+    checkCustomerEmailFormStatus();
+    checkCustomerTelFormStatus();
+    checkCampaignFormStatus();
+
+    clickConfirmButton();
 });

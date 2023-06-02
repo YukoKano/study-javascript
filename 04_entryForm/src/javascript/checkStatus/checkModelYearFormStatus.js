@@ -1,13 +1,19 @@
 import { changeRequiredText } from "../changeRequiredText.js";
 import { setFormStatus } from "./setFormStatus.js";
+import { addRequiredType } from "../addRequiredType.js"
+import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
+
 
 export const checkModelYearFormStatus = () => {
   const name = "modelYear";
 
-  console.log(`check ${name} status`);
+  // console.log(`check ${name} status`);
 
   const field = document.querySelector(`[data-js="${name}SelectMenu"]`);
   const label = document.querySelector(`label[for="${name}"]`);
+
+  addRequiredType(field);
+
   const type = label.querySelector(`span[class="requiredText"]`);
 
   let status;
@@ -20,6 +26,7 @@ export const checkModelYearFormStatus = () => {
     }
     changeRequiredText(type, status);
     setFormStatus(name, status);
+    setValueToComfirm(label, field);
   })
 
   // console.log(label, makerField, type);

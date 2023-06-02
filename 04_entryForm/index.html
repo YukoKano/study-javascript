@@ -66,39 +66,39 @@
 
 
 
-      <fieldset name="customerInformation" class="hide" data-js="step2Fieldset">
+      <fieldset name="customerInformation" class="hide">
         <legend>お客様情報の入力</legend>
-        <label for="customerName" data-js="customerNameLabel">お名前<span class="requiredText">必須</span>
+        <label for="customerName">お名前
         </label>
-        <input type="text" name="customerName" id="customerName" autocomplete="name" required data-js="customerInfo">
+        <input type="text" name="customerName" id="customerName" autocomplete="name" required data-js="customerNameInput">
         <p class="hide attentionText" data-js="customerNameAttention">お名前を入力してください</p>
 
-        <label for="customerPostcode" data-js="customerPostcodeLabel">郵便番号<span class="requiredText">必須</span>
+        <label for="customerPostcode">郵便番号
         </label>
-        <input type="text" name="customerPostcode" id="customerPostcode" autocomplete="postal-code" required data-js="customerInfo">
+        <input type="text" name="customerPostcode" id="customerPostcode" autocomplete="postal-code" required data-js="customerPostcodeInput">
         <p class="hide attentionText" data-js="customerPostcodeAttention">郵便番号を入力してください</p>
 
-        <label for="customerTel" data-js="customerTelLabel">電話番号<span class="requiredText">必須</span>
+        <label for="customerTel">電話番号
         </label>
-        <input type="tel" name="customerTel" id="customerInfo" autocomplete="tel" required data-js="customerInfo">
+        <input type="tel" name="customerTel" id="customerTel" autocomplete="tel" required  data-js="customerTelInput">
         <p class="hide attentionText" data-js="customerTelAttention">電話番号を入力してください</p>
 
-        <label for="customerEmail" data-js="customerEmailLabel">メールアドレス<span class="requiredText">必須</span>
+        <label for="customerEmail">メールアドレス
         </label>
-        <input type="email" name="customerEmail" id="customerEmail" autocomplete="email" placeholder="test@example.com" required data-js="customerInfo">
+        <input type="email" name="customerEmail" id="customerEmail" autocomplete="email" placeholder="test@example.com" required data-js="customerEmailInput">
         <p class="hide attentionText" data-js="customerEmailAttention">メールアドレスを入力してください</p>
 
-        <label data-js="campaignLabel">キャンペーンに応募しますか？<span class="requiredText">必須</span></label>
+        <label for="campaign">キャンペーンに応募しますか？</label>
 
         <label>
-          <input type="radio" name="campaign" value="yes" required data-js="campaign">応募する
+          <input type="radio" name="campaign" value="yes" required data-js="campaignInput">応募する
         </label>
         <label>
-          <input type="radio" name="campaign" value="no" data-js="campaign">応募しない
+          <input type="radio" name="campaign" value="no" data-js="campaignInput">応募しない
         </label>
         <p class="hide attentionText" data-js="campaignAttention">キャンペーンを選択してください</p>
 
-        <button type="button" data-js="step2ConfirmButton">確認画面へ進む</button>
+        <button type="button" data-js="comfirmButton">確認画面へ進む</button>
       </fieldset>
 
       <div class="hide" data-js="confirmation">

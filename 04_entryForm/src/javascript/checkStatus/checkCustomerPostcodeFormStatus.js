@@ -3,13 +3,12 @@ import { setFormStatus } from "./setFormStatus.js";
 import { addRequiredType } from "../addRequiredType.js"
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
 
-
-export const checkMakerFormStatus = () => {
-  const name = "maker";
+export const checkCustomerPostcodeFormStatus = () => {
+  const name = "customerPostcode";
 
   // console.log(`check ${name} status`);
 
-  const field = document.querySelector(`[data-js="${name}SelectMenu"]`);
+  const field = document.querySelector(`[data-js="${name}Input"]`);
   const label = document.querySelector(`label[for="${name}"]`);
 
   addRequiredType(field);
@@ -19,11 +18,12 @@ export const checkMakerFormStatus = () => {
   let status;
 
   field.addEventListener("change", () => {
-    if (field.value !== "") {
+    if (field.value.length === 7) {
       status = true;
     } else {
       status = false;
     }
+
     changeRequiredText(text, status);
     setFormStatus(name, status);
     setValueToComfirm(label, field);
