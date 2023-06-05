@@ -22,6 +22,8 @@ import { checkCustomerEmailFormStatus } from "./checkStatus/checkCustomerEmailFo
 import { checkCustomerTelFormStatus } from "./checkStatus/checkCustomerTelFormStatus.js";
 import { checkCampaignFormStatus } from "./checkStatus/checkCampaignFormStatus.js";
 import { clickConfirmButton } from "./button/clickConfirmButton.js";
+import { checkModelFormStatus } from "./checkStatus/checkModelFormStatus.js";
+import { checkColorFormStatus } from "./checkStatus/checkColorFormStatus.js";
 
 // 画像に関わる処理とかがない限り、初期化処理は↓で書くのが基本
 window.addEventListener('DOMContentLoaded', () => {
@@ -45,6 +47,9 @@ window.addEventListener('DOMContentLoaded', () => {
     checkCarNameFormStatus();
     checkModelYearFormStatus();
     checkMileageFormStatus();
+
+    checkModelFormStatus();
+    checkColorFormStatus();
 
     clickNextButton();
 

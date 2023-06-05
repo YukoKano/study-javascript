@@ -34,7 +34,6 @@ export const checkCampaignFormStatus = () => {
       }
       changeRequiredText(text, status);
       setFormStatus(name, status);
-      console.log(fields[fieldNum])
       setValueToComfirm(label, fields[fieldNum]);
     })
   })

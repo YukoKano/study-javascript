@@ -2,7 +2,7 @@ import { createOption } from "./createOption.js";
 import { createYearSelectItem } from "./createYearSelectItem.js";
 
 export const createCarGradeSelectItem = () => {
-  const gradeSelectMenu = document.querySelector("[data-js='gradeSelectMenu']");
+  const modelSelectMenu = document.querySelector("[data-js='modelSelectMenu']");
   const makerSelectMenu = document.querySelector("[data-js='makerSelectMenu']");
   const carNameSelectMenu = document.querySelector("[data-js='carNameSelectMenu']");
   const modelYearSelectMenu = document.querySelector("[data-js='modelYearSelectMenu']");
@@ -44,7 +44,7 @@ export const createCarGradeSelectItem = () => {
 
   makerSelectMenu.addEventListener("change", () => {
     if (carNameSelectMenu.value === "") {
-      gradeSelectMenu.disabled = true;
+      modelSelectMenu.disabled = true;
     }
   })
 
@@ -54,15 +54,15 @@ export const createCarGradeSelectItem = () => {
     const yearItem = modelYearSelectMenu.value;
 
     // DOM上のoptionタグをリセットする
-    for (let i = gradeSelectMenu.options.length - 1; i >= 0; i--) {
-      if (gradeSelectMenu.options[i].value !== "" && gradeSelectMenu.options[i].value !== "unknown") {
-        gradeSelectMenu.remove(i);
+    for (let i = modelSelectMenu.options.length - 1; i >= 0; i--) {
+      if (modelSelectMenu.options[i].value !== "" && modelSelectMenu.options[i].value !== "unknown") {
+        modelSelectMenu.remove(i);
       }
     }
 
     // optionタグを追加する
     if (carItem.value !== "") {
-      gradeSelectMenu.disabled = false; // 効力強い……
+      modelSelectMenu.disabled = false; // 効力強い……
 
       // 指定された周辺の年式のものを選べるようにする
       const maxYear = parseInt(yearItem) + parseInt(yearRange);
@@ -75,10 +75,10 @@ export const createCarGradeSelectItem = () => {
               value: item.grade,
               label: item.grade
             }
-            gradeSelectMenu.appendChild(createOption(grade));
+            modelSelectMenu.appendChild(createOption(grade));
           }
         } else {
-          // gradeSelectMenu.disabled = true;
+          // modelSelectMenu.disabled = true;
         }
       });
     }
