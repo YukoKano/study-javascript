@@ -1,6 +1,6 @@
-import { changeRequiredText } from "../changeRequiredText.js";
+import { changeRequiredText } from "../requiredText/changeRequiredText.js";
 import { setFormStatus } from "./setFormStatus.js";
-import { addRequiredType } from "../addRequiredType.js"
+import { addRequiredType } from "../requiredText/addRequiredType.js"
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
 
 export const checkCustomerNameFormStatus = () => {

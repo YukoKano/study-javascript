@@ -1,15 +1,10 @@
-import { createMakerSelectItem } from "./createMakerSelectItem.js";
-import { createCarSelectItem } from "./createCarSelectItem.js";
-import { createYearSelectItem } from "./createYearSelectItem.js";
-import { createCarGradeSelectItem } from "./createCarGradeSelectItem.js";
-import { createCarColorSelectItem } from "./createCarColorSelectItem.js"
-import { createMileageSelectItem } from "./createMileageSelectItem.js";
+import { createMakerSelectItem } from "./createSelectItem/createMakerSelectItem.js";
+import { createCarSelectItem } from "./createSelectItem/createCarSelectItem.js";
+import { createYearSelectItem } from "./createSelectItem/createYearSelectItem.js";
+import { createCarGradeSelectItem } from "./createSelectItem/createCarGradeSelectItem.js";
+import { createCarColorSelectItem } from "./createSelectItem/createCarColorSelectItem.js"
+import { createMileageSelectItem } from "./createSelectItem/createMileageSelectItem.js";
 import { toggleDetail } from "./toggleDetail.js";
-// import { toggleRequiredText } from "./toggleRequiredText.js";
-// import { step1ButtonAction } from "./step1ButtonAction.js";
-// import { step2ConfirmButtonAction } from "./step2ConfirmButtonAction.js";
-
-// import { addRequiredType } from "./addRequiredType.js";
 
 import { checkMakerFormStatus } from "./checkStatus/checkMakerFormStatus.js";
 import { checkCarNameFormStatus } from "./checkStatus/checkCarNameFormStatus.js";
@@ -35,13 +30,6 @@ window.addEventListener('DOMContentLoaded', () => {
     createMileageSelectItem();
 
     toggleDetail();
-    // toggleRequiredText();
-
-    // step1ButtonAction();
-    // step2ConfirmButtonAction();
-
-
-    // addRequiredType();
 
     checkMakerFormStatus();
     checkCarNameFormStatus();

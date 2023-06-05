@@ -1,4 +1,4 @@
-import { createOption } from "./createOption.js"
+import { createOption } from "../createOption.js"
 
 export const createYearSelectItem = () => {
   const basicYear = 2023;
