@@ -1,28 +1,7 @@
+import { MAKERLIST } from "../constraints.js";
 import { createOption } from "../createOption.js";
 
 export const createMakerSelectItem = () => {
-  const makerList = [
-    {
-      value: "nissan",
-      label: "日産",
-      type: "domestic"
-    },
-    {
-      value: "toyota",
-      label: "トヨタ",
-      type: "domestic"
-    },
-    {
-      value: "matsuda",
-      label: "マツダ",
-      type: "domestic"
-    },
-    {
-      value: "volkswagen",
-      label: "フォルクスワーゲン",
-      type: "overseas"
-    }
-  ];
 
   const makerSelectMenu = document.querySelector('[data-js="makerSelectMenu"]');
 
@@ -30,7 +9,7 @@ export const createMakerSelectItem = () => {
   const domesticArray = [];
   const overseasArray = [];
 
-  makerList.forEach((item) => {
+  MAKERLIST.forEach((item) => {
     if (item.type === "domestic") {
       domesticArray.push(item);
     } else if (item.type === "overseas") {

@@ -1,21 +1,15 @@
 import { changeRequiredText } from "../requiredText/changeRequiredText.js";
 import { setFormStatus } from "./setFormStatus.js";
-import { addRequiredType } from "../requiredText/addRequiredType.js"
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
 
 export const checkCarNameFormStatus = () => {
   const name = "carName";
 
-  // console.log(`check ${name} status`);
-
   const field = document.querySelector(`[data-js="${name}SelectMenu"]`);
   const label = document.querySelector(`label[for="${name}"]`);
 
-  addRequiredType(field);
-
   const type = label.querySelector(`span[class="requiredText"]`);
   let status;
-
 
   field.addEventListener("change", () => {
     if (field.value !== "") {
@@ -28,17 +22,11 @@ export const checkCarNameFormStatus = () => {
     setValueToComfirm(label, field);
   })
 
-  // makerがリセットされたら
   const makerField = document.querySelector(`[data-js="makerSelectMenu"]`);
-  let makerValue;
 
   makerField.addEventListener("change", () => {
-    makerValue = makerField.value;
-
-    if (makerValue === "") {
-      status = false;
-    }
-    changeRequiredText(type, status);
+    status = false;
     setFormStatus(name, status);
+    changeRequiredText(type, status);
   })
 }

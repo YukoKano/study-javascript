@@ -1,6 +1,6 @@
 import { changeRequiredText } from "../requiredText/changeRequiredText.js";
 import { setFormStatus } from "./setFormStatus.js";
-import { addRequiredType } from "../requiredText/addRequiredType.js"
+
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
 
 export const checkCampaignFormStatus = () => {
@@ -10,8 +10,6 @@ export const checkCampaignFormStatus = () => {
 
   const fields = document.querySelectorAll(`[data-js="${name}Input"]`);
   const label = document.querySelector(`label[for="${name}"]`);
-
-  addRequiredType(fields[0]);
 
   const text = label.querySelector(`span[class="requiredText"]`);
 

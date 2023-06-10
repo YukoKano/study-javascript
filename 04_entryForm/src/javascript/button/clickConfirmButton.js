@@ -1,13 +1,15 @@
-import { stockFormStatus, resetFormStatus } from "../checkStatus/stockFormStatus.js";
+import { requiredForm } from "../checkStatus/requiredForm.js";
 
 export const clickConfirmButton = () => {
   const button = document.querySelector(`[data-js="comfirmButton"]`);
 
-  // console.log(button);
-
   button.addEventListener("click", () => {
-    let status = Object.values(stockFormStatus);
-    const result = status.every((item) => { return item === true; })
+    let formStatus;
+    requiredForm.forEach((item) => {
+      formStatus.push(item.status);
+    })
+    console.log(formStatus);
+    const result = formStatus.every((item) => { return item === true; })
 
     if (result) {
       const nextContent = document.querySelector(`[data-js="confirmation"]`)

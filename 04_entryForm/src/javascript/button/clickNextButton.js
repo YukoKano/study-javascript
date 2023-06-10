@@ -1,4 +1,4 @@
-import { stockFormStatus, resetFormStatus } from "../checkStatus/stockFormStatus.js";
+import { requiredForm } from "../checkStatus/requiredForm.js";
 
 export const clickNextButton = () => {
   const button = document.querySelector(`[data-js="step1NextButton"]`);
@@ -6,8 +6,15 @@ export const clickNextButton = () => {
   // console.log(button);
 
   button.addEventListener("click", () => {
-    let status = Object.values(stockFormStatus);
-    const result = status.every((item) => { return item === true; })
+    let formStatus = [];
+    requiredForm.forEach((item) => {
+      if (item.type === "carInformation") {
+        formStatus.push(item.status);
+      }
+    })
+    console.log(formStatus);
+
+    const result = formStatus.every((item) => { return item === true; })
 
     // console.log("button click", result);
 
@@ -15,8 +22,6 @@ export const clickNextButton = () => {
       const nextFieldset = document.querySelector(`fieldset[name="customerInformation"]`)
 
       nextFieldset.classList.remove("hide");
-
-      resetFormStatus("customerInformation", "Input");
     }
   })
 }

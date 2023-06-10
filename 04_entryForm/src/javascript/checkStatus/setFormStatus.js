@@ -1,5 +1,9 @@
-import { stockFormStatus } from "./stockFormStatus.js";
+import { requiredForm } from "./requiredForm.js";
 
 export const setFormStatus = (name, status) => {
-  stockFormStatus[name] = status;
+  requiredForm.forEach((item) => {
+    if (item.name === name) {
+      item.status = status;
+    }
+  })
 }
