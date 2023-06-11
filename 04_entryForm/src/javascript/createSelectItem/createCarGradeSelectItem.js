@@ -10,21 +10,12 @@ export const createCarGradeSelectItem = () => {
 
   const selectMenu = document.querySelectorAll(`fieldset[name="carInformation"] select[required]`);
 
-
-  // makerSelectMenu.addEventListener("change", () => {
-  //   if (carNameSelectMenu.value === "" ) {
-  //     modelSelectMenu.disabled = true;
-  //   }
-  // })
-
-  console.log(selectMenu);
-
+  // 直す：走行距離の時も処理が走る
   selectMenu.forEach((item) => {
     item.addEventListener("change", () => {
       const makerItem = makerSelectMenu.value;
       const carItem = carNameSelectMenu.value;
       const yearItem = modelYearSelectMenu.value;
-      console.log("chanee");
 
       // DOM上のoptionタグをリセットする
       for (let i = modelSelectMenu.options.length - 1; i >= 0; i--) {
@@ -33,9 +24,7 @@ export const createCarGradeSelectItem = () => {
         }
       }
 
-      if (makerItem === "" | carItem === "" | yearItem === "") {
-        modelSelectMenu.disabled = true;
-      } else if (makerItem !== "" & carItem !== "" & yearItem !== "") {
+      if (makerItem !== "" & carItem !== "" & yearItem !== "") {
         // 全て入力されている時、optionタグを追加する
         modelSelectMenu.disabled = false;
 
@@ -56,6 +45,9 @@ export const createCarGradeSelectItem = () => {
             }
           }
         });
+
+      } else  {
+        modelSelectMenu.disabled = true;
       }
     })
 

@@ -4,7 +4,7 @@ export const clickConfirmButton = () => {
   const button = document.querySelector(`[data-js="comfirmButton"]`);
 
   button.addEventListener("click", () => {
-    let formStatus;
+    let formStatus = [];
     requiredForm.forEach((item) => {
       formStatus.push(item.status);
     })
@@ -12,9 +12,13 @@ export const clickConfirmButton = () => {
     const result = formStatus.every((item) => { return item === true; })
 
     if (result) {
-      const nextContent = document.querySelector(`[data-js="confirmation"]`)
+      const confirmList = document.querySelector(`[data-js="confirmation"]`)
 
-      nextContent.classList.remove("hide");
+      confirmList.classList.remove("hide");
+      const fieldsets = document.querySelectorAll(`fieldset`);
+      fieldsets.forEach((item) => {
+        item.classList.add("hide");
+      })
     }
   })
 }

@@ -19,6 +19,8 @@ import { checkCampaignFormStatus } from "./checkStatus/checkCampaignFormStatus.j
 import { clickConfirmButton } from "./button/clickConfirmButton.js";
 import { checkModelFormStatus } from "./checkStatus/checkModelFormStatus.js";
 import { checkColorFormStatus } from "./checkStatus/checkColorFormStatus.js";
+import { clickInputChange } from "./button/clickInputChangeButton.js";
+import { clickSubmitButton } from "./button/clickSubmitButton.js";
 
 // 画像に関わる処理とかがない限り、初期化処理は↓で書くのが基本
 window.addEventListener('DOMContentLoaded', () => {
@@ -48,4 +50,6 @@ window.addEventListener('DOMContentLoaded', () => {
     checkCampaignFormStatus();
 
     clickConfirmButton();
+    clickInputChange();
+    clickSubmitButton();
 });
