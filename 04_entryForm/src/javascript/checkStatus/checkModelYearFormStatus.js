@@ -1,6 +1,7 @@
 import { changeRequiredText } from "../requiredText/changeRequiredText.js";
 import { setFormStatus } from "./setFormStatus.js";
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
+import { toggleAttentionText } from "../toggleAttentionText.js";
 
 
 export const checkModelYearFormStatus = () => {
@@ -22,5 +23,6 @@ export const checkModelYearFormStatus = () => {
     changeRequiredText(type, status);
     setFormStatus(name, status);
     setValueToComfirm(label, field);
+    toggleAttentionText(name, status);
   })
 }

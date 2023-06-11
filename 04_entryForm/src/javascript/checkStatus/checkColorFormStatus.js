@@ -6,9 +6,6 @@ export const checkColorFormStatus = () => {
   const field = document.querySelector(`[data-js="${name}SelectMenu"]`);
   const label = document.querySelector(`label[for="${name}"]`);
 
-  //
-
-  // const type = label.querySelector(`span[class="requiredText"]`);
   let status;
 
   field.addEventListener("change", () => {
@@ -17,8 +14,6 @@ export const checkColorFormStatus = () => {
     } else {
       status = false;
     }
-    // changeRequiredText(type, status);
-    // setFormStatus(name, status);
     setValueToComfirm(label, field);
   })
 }

@@ -2,6 +2,7 @@ import { changeRequiredText } from "../requiredText/changeRequiredText.js";
 import { setFormStatus } from "./setFormStatus.js";
 
 import { setValueToComfirm } from "../setValue/setValueToComfirm.js";
+import { toggleAttentionText } from "../toggleAttentionText.js";
 
 export const checkCampaignFormStatus = () => {
   const name = "campaign";
@@ -33,6 +34,7 @@ export const checkCampaignFormStatus = () => {
       changeRequiredText(text, status);
       setFormStatus(name, status);
       setValueToComfirm(label, fields[fieldNum]);
+      toggleAttentionText(name, status);
     })
   })
 }
