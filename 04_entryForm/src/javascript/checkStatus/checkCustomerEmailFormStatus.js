@@ -14,15 +14,10 @@ export const checkCustomerEmailFormStatus = () => {
 
   const text = label.querySelector(`span[class="requiredText"]`);
 
-  let status;
-
   field.addEventListener("change", () => {
     const emailPattern = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
-    if (emailPattern.test(field.value)) {
-      status = true;
-    } else {
-      status = false;
-    }
+    const isEmail = emailPattern.test(field.value);
+    const status = isEmail;
 
     changeRequiredText(text, status);
     setFormStatus(name, status);

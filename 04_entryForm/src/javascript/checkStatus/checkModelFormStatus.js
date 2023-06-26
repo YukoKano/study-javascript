@@ -10,13 +10,11 @@ export const checkModelFormStatus = () => {
 
 
   field.addEventListener("change", () => {
-    if (field.value !== "") {
+    if (field.value) {
       status = true;
     } else {
       status = false;
     }
-    // changeRequiredText(type, status);
-    // setFormStatus(name, status);
     setValueToComfirm(label, field);
   })
 
@@ -27,10 +25,8 @@ export const checkModelFormStatus = () => {
   makerField.addEventListener("change", () => {
     makerValue = makerField.value;
 
-    if (makerValue === "") {
+    if (makerValue) {
       status = false;
     }
-    // changeRequiredText(type, status);
-    // setFormStatus(name, status);
   })
 }

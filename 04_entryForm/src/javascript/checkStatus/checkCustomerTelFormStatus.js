@@ -14,14 +14,8 @@ export const checkCustomerTelFormStatus = () => {
 
   const text = label.querySelector(`span[class="requiredText"]`);
 
-  let status;
-
   field.addEventListener("change", () => {
-    if (field.value.length === 11) {
-      status = true;
-    } else {
-      status = false;
-    }
+    const status = field.value.length === 11;
 
     changeRequiredText(text, status);
     setFormStatus(name, status);

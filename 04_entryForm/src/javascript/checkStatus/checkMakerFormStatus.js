@@ -15,7 +15,7 @@ export const checkMakerFormStatus = () => {
   field.addEventListener("change", () => {
     let status;
 
-    if (field.value !== "") {
+    if (field.value) {
       status = true;
     } else {
       status = false;

@@ -1,5 +1,5 @@
 import { createOption } from "../createOption.js";
-import { GRADELIST } from "../constraints.js";
+import { GRADELIST } from "../constants.js";
 
 export const createCarGradeSelectItem = () => {
   const modelSelectMenu = document.querySelector("[data-js='modelSelectMenu']");
@@ -24,7 +24,7 @@ export const createCarGradeSelectItem = () => {
         }
       }
 
-      if (makerItem !== "" & carItem !== "" & yearItem !== "") {
+      if (makerItem && carItem  && yearItem) {
         // 全て入力されている時、optionタグを追加する
         modelSelectMenu.disabled = false;
 

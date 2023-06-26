@@ -14,17 +14,10 @@ export const checkCustomerNameFormStatus = () => {
 
   const text = label.querySelector(`span[class="requiredText"]`);
 
-  let status;
-
   field.addEventListener("change", () => {
     const regex = new RegExp(/^[一-龯ぁ-んァ-ヶー]+$/);
     const isJapaneseInput = regex.test(field.value);
-
-    if (isJapaneseInput) {
-      status = true;
-    } else {
-      status = false;
-    }
+    const status = isJapaneseInput;
 
     changeRequiredText(text, status);
     setFormStatus(name, status);

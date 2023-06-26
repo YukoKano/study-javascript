@@ -1,4 +1,4 @@
-import { MAKERLIST } from "../constraints.js";
+import { MAKERLIST } from "../constants.js";
 import { createOption } from "../createOption.js";
 
 export const createMakerSelectItem = () => {

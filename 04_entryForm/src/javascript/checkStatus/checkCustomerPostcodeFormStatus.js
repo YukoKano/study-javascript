@@ -14,14 +14,8 @@ export const checkCustomerPostcodeFormStatus = () => {
 
   const text = label.querySelector(`span[class="requiredText"]`);
 
-  let status;
-
   field.addEventListener("change", () => {
-    if (field.value.length === 7) {
-      status = true;
-    } else {
-      status = false;
-    }
+    const status = field.value.length === 7;
 
     changeRequiredText(text, status);
     setFormStatus(name, status);

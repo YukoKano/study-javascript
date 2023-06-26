@@ -3,18 +3,11 @@ import { requiredForm } from "../checkStatus/requiredForm.js";
 export const clickNextButton = () => {
   const button = document.querySelector(`[data-js="step1NextButton"]`);
 
-  // console.log(button);
-
   button.addEventListener("click", () => {
-    let formStatus = [];
-    requiredForm.forEach((item) => {
-      if (item.type === "carInformation") {
-        formStatus.push(item.status);
-      }
-    })
+    const formStatus = requiredForm.filter(item => item.type === "carInformation").map(item => item.status);
     console.log(formStatus);
 
-    const result = formStatus.every((item) => { return item === true; })
+    const result = formStatus.every((item) => item);
 
     // console.log("button click", result);
 

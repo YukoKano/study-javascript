@@ -1,24 +1,16 @@
 import { requiredForm } from "../checkStatus/requiredForm.js";
+import { changeView } from "../changeView.js";
 
 export const clickConfirmButton = () => {
   const button = document.querySelector(`[data-js="comfirmButton"]`);
 
   button.addEventListener("click", () => {
-    let formStatus = [];
-    requiredForm.forEach((item) => {
-      formStatus.push(item.status);
-    })
+    const formStatus = requiredForm.map(item => item.status);
     console.log(formStatus);
-    const result = formStatus.every((item) => { return item === true; })
+    const result = formStatus.every((item) => item);
 
     if (result) {
-      const confirmList = document.querySelector(`[data-js="confirmation"]`)
-
-      confirmList.classList.remove("hide");
-      const fieldsets = document.querySelectorAll(`fieldset`);
-      fieldsets.forEach((item) => {
-        item.classList.add("hide");
-      })
+      changeView("confirm");
     }
   })
 }

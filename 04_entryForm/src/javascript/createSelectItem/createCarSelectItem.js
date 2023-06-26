@@ -1,38 +1,8 @@
 import { createOption } from "../createOption.js";
+import { CARLIST } from "../constants.js";
 
 export const createCarSelectItem = () => {
-  const carList = [
-    {
-      value: "serena",
-      label: "セレナ",
-      maker: "nissan"
-    },
-    {
-      value: "aria",
-      label: "アリア",
-      maker: "nissan"
-    },
-    {
-      value: "sakura",
-      label: "サクラ",
-      maker: "nissan"
-    },
-    {
-      value: "note",
-      label: "ノート",
-      maker: "nissan"
-    },
-    {
-      value: "aqua",
-      label: "アクア",
-      maker: "toyota"
-    },
-    {
-      value: "golf",
-      label: "ゴルフ",
-      maker: "volkswagen"
-    }
-  ];
+
 
   const carNameSelectMenu = document.querySelector('[data-js="carNameSelectMenu"]');
   const makerSelectMenu = document.querySelector('[data-js="makerSelectMenu"]');
@@ -49,14 +19,14 @@ export const createCarSelectItem = () => {
     const makerItem = makerSelectMenu.value;
 
     // 選択してください、だった場合、車種名のselectを選択できないようにする
-    if (makerItem !== "") {
+    if (makerItem) {
       carNameSelectMenu.disabled = false;
-      carList.forEach((item) => {
+      CARLIST.forEach((item) => {
         if (item.maker === makerItem) {
           carNameSelectMenu.appendChild(createOption(item));
         }
       })
-    } else if (makerItem === "") {
+    } else  {
       carNameSelectMenu.disabled = true;
     }
   })

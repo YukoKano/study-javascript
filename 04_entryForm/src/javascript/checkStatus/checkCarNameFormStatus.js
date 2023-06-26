@@ -13,7 +13,7 @@ export const checkCarNameFormStatus = () => {
   let status;
 
   field.addEventListener("change", () => {
-    if (field.value !== "") {
+    if (field.value) {
       status = true;
     } else {
       status = false;
