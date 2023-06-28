@@ -1,12 +1,11 @@
 import { createOption } from "../createOption.js"
+import { YEARRANGE } from "../constants.js";
 
 export const createYearSelectItem = () => {
   const nowYear = new Date().getFullYear();
-  const yearRange = 15;
-
   const modelYearSelectMenu = document.querySelector("[data-js='modelYearSelectMenu']");
 
-  for (let i = 0; i < yearRange; i++) {
+  for (let i = 0; i < YEARRANGE; i++) {
     const year = nowYear - i;
 
     const item = {

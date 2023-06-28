@@ -7,30 +7,23 @@ import { toggleAttentionText } from "../toggleAttentionText.js";
 export const checkCampaignFormStatus = () => {
   const name = "campaign";
 
-  // console.log(`check ${name} status`);
-
   const fields = document.querySelectorAll(`[data-js="${name}Input"]`);
   const label = document.querySelector(`label[for="${name}"]`);
-
   const text = label.querySelector(`span[class="requiredText"]`);
 
   let status;
   let fieldText, fieldNum;
 
-  fields.forEach((item) => {
+  fields.forEach((item, index) => {
     item.addEventListener("change", () => {
       if (item.checked) {
         status = true;
         fieldText = item.value;
+        fieldNum = index;
       } else {
         status = false;
       }
 
-      if (fieldText === "yes") {
-        fieldNum = 0;
-      } else {
-        fieldNum = 1;
-      }
       changeRequiredText(text, status);
       setFormStatus(name, status);
       setValueToComfirm(label, fields[fieldNum]);

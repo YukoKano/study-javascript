@@ -87,6 +87,9 @@ export const GRADELIST = [
   }
 ]
 
+export const YEARRANGE = 15;
+export const GRADEYEARRANGE = 5;
+
 export const MILEAGE = [
   {
     value: "under10000",
