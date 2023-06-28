@@ -11,17 +11,13 @@ export const checkCampaignFormStatus = () => {
   const label = document.querySelector(`label[for="${name}"]`);
   const text = label.querySelector(`span[class="requiredText"]`);
 
-  let status;
-  let fieldText, fieldNum;
-
   fields.forEach((item, index) => {
     item.addEventListener("change", () => {
+      let fieldSelectedNum;
+      const status = item.checked;
+
       if (item.checked) {
-        status = true;
-        fieldText = item.value;
-        fieldNum = index;
-      } else {
-        status = false;
+        fieldSelectedNum = index;
       }
 
       changeRequiredText(text, status);

@@ -11,15 +11,10 @@ export const checkMakerFormStatus = () => {
   const label = document.querySelector(`label[for="${name}"]`);
   const text = label.querySelector(`span[class="requiredText"]`);
 
-
   field.addEventListener("change", () => {
-    let status;
+    const isSetValue = field.value;
+    const status = isSetValue;
 
-    if (field.value) {
-      status = true;
-    } else {
-      status = false;
-    }
     changeRequiredText(text, status);
     setFormStatus(name, status);
     setValueToComfirm(label, field);

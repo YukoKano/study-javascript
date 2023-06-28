@@ -14,7 +14,6 @@ export const clickConfirmButton = () => {
 
     // status確認
     const formStatus = requiredForm.map(item => item.status);
-    console.log(formStatus);
     const result = formStatus.every((item) => item);
 
     if (result) {

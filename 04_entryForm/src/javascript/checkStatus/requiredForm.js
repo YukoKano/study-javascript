@@ -45,5 +45,3 @@ export let requiredForm = [
     status: false
   }
 ];
-
-console.log(requiredForm);

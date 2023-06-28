@@ -9,9 +9,6 @@ export const checkCustomerNameFormStatus = () => {
 
   const field = document.querySelector(`[data-js="${name}Input"]`);
   const label = document.querySelector(`label[for="${name}"]`);
-
-
-
   const text = label.querySelector(`span[class="requiredText"]`);
 
   field.addEventListener("change", () => {

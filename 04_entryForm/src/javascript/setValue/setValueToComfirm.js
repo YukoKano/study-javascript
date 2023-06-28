@@ -18,7 +18,7 @@ export const setValueToComfirm = (label, field) => {
   paragraphs.forEach((p) => {
     const textContent = p.textContent;
     if (textContent.includes(searchString)) {
-      p.textContent = `${searchString}： ${value}`;
+      p.textContent = `${searchString}: ${value}`;
     }
   })
 }

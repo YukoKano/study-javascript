@@ -15,18 +15,19 @@ export const createCarSelectItem = () => {
       }
     }
 
-    // メーカー名にあった車種をoptionタグに追加する
     const makerItem = makerSelectMenu.value;
 
-    // 選択してください、だった場合、車種名のselectを選択できないようにする
     if (makerItem) {
       carNameSelectMenu.disabled = false;
+
+      // メーカー名にあった車種をoptionタグに追加する
       CARLIST.forEach((item) => {
         if (item.maker === makerItem) {
           carNameSelectMenu.appendChild(createOption(item));
         }
       })
-    } else  {
+    } else {
+      // 選択してくださいだった場合、車種名のselectを選択できないようにする
       carNameSelectMenu.disabled = true;
     }
   })

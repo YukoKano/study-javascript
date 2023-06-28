@@ -13,8 +13,6 @@ export const clickNextButton = () => {
 
     // 全てのstatusを確認
     const formStatus = requiredForm.filter(item => item.type === "carInformation").map(item => item.status);
-    console.log(formStatus);
-
     const result = formStatus.every((item) => item);
 
     if (result) {

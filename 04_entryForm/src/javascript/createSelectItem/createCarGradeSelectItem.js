@@ -46,6 +46,5 @@ export const createCarGradeSelectItem = () => {
         modelSelectMenu.disabled = true;
       }
     })
-
   })
 }
