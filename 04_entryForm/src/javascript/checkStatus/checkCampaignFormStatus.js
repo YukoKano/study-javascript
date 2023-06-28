@@ -22,7 +22,7 @@ export const checkCampaignFormStatus = () => {
 
       changeRequiredText(text, status);
       setFormStatus(name, status);
-      setValueToComfirm(label, fields[fieldNum]);
+      setValueToComfirm(label, fields[fieldSelectedNum]);
       toggleAttentionText(name, status);
     })
   })

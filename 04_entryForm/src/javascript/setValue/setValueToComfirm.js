@@ -10,7 +10,7 @@ export const setValueToComfirm = (label, field) => {
       value = "未指定";
     }
   } else if (field.name === "campaign") {
-    value = field.computedName;
+    value = field.parentNode.textContent;
   } else if (field.value !== undefined) {
     value = field.value;
   }
