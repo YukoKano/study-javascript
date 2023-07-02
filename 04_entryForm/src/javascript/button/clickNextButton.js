@@ -19,6 +19,7 @@ export const clickNextButton = () => {
       const nextFieldset = document.querySelector(`fieldset[name="customerInformation"]`)
 
       nextFieldset.classList.remove("hide");
+      button.classList.add("hide");
     }
   })
 }

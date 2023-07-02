@@ -8,7 +8,7 @@ export const createCarGradeSelectItem = () => {
   const carNameSelectMenu = document.querySelector("[data-js='carNameSelectMenu']");
   const modelYearSelectMenu = document.querySelector("[data-js='modelYearSelectMenu']");
 
-  const selectMenu = new Array(makerSelectMenu, carNameSelectMenu, modelYearSelectMenu);
+  const selectMenu = [makerSelectMenu, carNameSelectMenu, modelYearSelectMenu];
 
   selectMenu.forEach((item) => {
     item.addEventListener("change", () => {

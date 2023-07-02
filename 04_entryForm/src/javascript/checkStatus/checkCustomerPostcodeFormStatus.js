@@ -12,7 +12,10 @@ export const checkCustomerPostcodeFormStatus = () => {
   const text = label.querySelector(`span[class="requiredText"]`);
 
   field.addEventListener("change", () => {
-    const status = field.value.length === 7;
+    const notHaveHyphen = field.value.match(/-/) === null;
+    const isPostcode = field.value.length === 7;
+
+    const status = notHaveHyphen && isPostcode;
 
     changeRequiredText(text, status);
     setFormStatus(name, status);

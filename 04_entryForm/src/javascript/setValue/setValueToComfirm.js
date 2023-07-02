@@ -2,7 +2,7 @@ export const setValueToComfirm = (label, field) => {
   let value;
   const paragraphs = document.querySelectorAll(`[data-js="confirmation"] div p`)
 
-  const searchString = label.innerText.replace("ok", "").replace(/※.*/, "").replace(" ", "");
+  const searchString = label.innerText.replace("OK", "").replace(/※.*/, "").replace(" ", "");
 
   if (field.selectedIndex !== undefined) {
     value = field.options[field.selectedIndex].text;
@@ -18,7 +18,7 @@ export const setValueToComfirm = (label, field) => {
   paragraphs.forEach((p) => {
     const textContent = p.textContent;
     if (textContent.includes(searchString)) {
-      p.textContent = `${searchString}: ${value}`;
+      p.textContent = `${searchString}： ${value}`;
     }
   })
 }

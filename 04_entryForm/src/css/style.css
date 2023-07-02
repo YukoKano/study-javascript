@@ -19,24 +19,38 @@ body {
 fieldset {
   border: none;
   margin-top: 32px;
+  padding: 16px 16px 32px;
+  border: 1px solid #646464;
 }
 
 legend {
   font-weight: 600;
-  font-size: large;
+  font-size: 24px;
+  padding-inline: 8px;
 }
 
 label {
   display: block;
-  margin-top: 16px;
+  margin-top: 20px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 4px;
+  font-size: 14px;
 }
 
 .requiredText {
-  font-size: small;
+  margin-left: 8px;
   padding: 2px 4px;
-  color: red;
+  background-color: #e00b00;
+  color: #ffffff;
+  font-size: small;
   &.ok {
-    color: green;
+    background-color: #2e8540;
   }
 }
 
@@ -51,18 +65,27 @@ label {
   margin-left: 4px;
   color: #646464;
   font-size: small;
+  font-weight: 300;
 }
 
-label[for="detail"]::before {
-  content: "▼";
-  margin-right: 4px;
+label[for="detail"] {
+  background-color: #e9e9e9;
+  padding: 4px 16px;
+  text-align: center;
+  &::before {
+    content: "▼";
+    margin-right: 4px;
+  }
 }
+
 #detail {
   display: none;
 }
+
 .detailBox {
   display: none;
-  padding: 8px 16px;
+  padding: 8px 16px 32px;
+  background-color: #e9e9e9;
   &.open {
     display: block;
   }
@@ -70,20 +93,32 @@ label[for="detail"]::before {
 
 button {
   display: block;
-  margin-top: 32px;
+  margin-top: 64px;
+  padding: 8px 16px;
+  min-width: 200px;
+  background-color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-inline: auto;
 }
 
 .hide {
   display: none;
 }
 
-.title {
-  margin-top: 32px;
-  font-weight: bold;
-  font-size: large;
+.attentionText {
+  color: #e00b00;
+  font-size: small;
 }
 
-.attentionText {
-  color: red;
-  font-size: small;
+[data-js="confirmation"] div p {
+  margin-bottom: 4px;
+}
+
+.title {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: large;
 }

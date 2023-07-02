@@ -12,7 +12,10 @@ export const checkCustomerTelFormStatus = () => {
   const text = label.querySelector(`span[class="requiredText"]`);
 
   field.addEventListener("change", () => {
-    const status = field.value.length === 11;
+    const notHaveHyphen = field.value.match(/-/) === null;
+    const isTelNum = field.value.length === 11;
+
+    const status = notHaveHyphen && isTelNum;
 
     changeRequiredText(text, status);
     setFormStatus(name, status);
